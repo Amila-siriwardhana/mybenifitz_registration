@@ -1,0 +1,28 @@
+.card{
+    background-color: #1a4848;
+    padding: 4rem;
+}
+
+input{
+    border: none;
+    width: 100%;
+    &:focus-visible {
+        outline: none;
+    }
+   
+
+}
+.inputdiv{
+    background-color: white;
+    border:1px solid #1a4848 ;
+    border-radius: $border-radius-value;
+    margin:10px 0;
+
+    
+    
+}
+.submit_button{
+    background-color: #fdc11f;
+    border-radius: $border-radius-value;
+    
+}
