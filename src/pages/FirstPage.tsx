@@ -1,24 +1,57 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
 import ImageUpload from "../components/ImageUpload";
 import logo from "../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
+import { ClubTypes } from "../constants/enums";
+import { IClub } from "../constants/interfaces/IClub";
 
 const FirstPage = () => {
-  const [image, setImage] = useState<any | null>(null);
   const navigate = useNavigate();
+
+  const [clubType, setClubType] = useState<ClubTypes | null>(null);
+  const [smallLogo, setSmallLogo] = useState<any | null>(null);
+  const [bigLogo, setBigLogo] = useState<any | null>(null);
 
   const {
     register,
     handleSubmit,
     control,
+    setError,
+    clearErrors,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    if (!clubType) {
+      setError("clubType", {
+        type: "required",
+        message: "Please select the club type",
+      });
+    } else {
+      clearErrors("clubType");
+    }
+  }, [setError, clubType]);
+
   const onSubmit = (data: any) => {
-    console.log(data);
-    navigate("/add_business_to_club");
+    if (data && clubType) {
+      const clubDataObj: IClub = {
+        type: clubType,
+        name: data.name,
+        email: data.email,
+        phoneNum: data.phoneNum,
+        website: data.website,
+        description: data.description,
+        extraInfo: data.extraInfo,
+        smallImage: smallLogo,
+        largeImage: bigLogo,
+      };
+      console.log("clubData: ", clubDataObj);
+    }
+    // navigate("/add_business_to_club");
   };
+
   console.log("ERR:", errors);
 
   return (
@@ -32,20 +65,34 @@ const FirstPage = () => {
         </div>
         <div className="card p-5 me-5">
           <div className="mb-2">
-            <button className="submit_button px-5 py-2">Public</button>
+            <button
+              className={`submit_button px-5 py-2 ${
+                clubType === ClubTypes.Public ? "active " : ""
+              }`}
+              onClick={() => setClubType(ClubTypes.Public)}
+            >
+              Public
+            </button>
             <span className="textsec mx-3">or</span>
-            <button className="submit_button px-5 py-2">Private</button>
+            <button
+              className={`submit_button px-5 py-2 ${
+                clubType === ClubTypes.Private ? "active " : ""
+              }`}
+              onClick={() => setClubType(ClubTypes.Private)}
+            >
+              Private
+            </button>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="row">
               <div className="inputgroup col-6 left">
-                <label>Club name</label>
+                <label>Club Name</label>
                 <div className="inputdiv ">
                   <input
                     type="text"
-                    placeholder="Club name"
-                    {...register("Club name", {
-                      required: true,
+                    placeholder="Club Name"
+                    {...register("name", {
+                      required: "Please enter the club name",
                       maxLength: 80,
                     })}
                   />
@@ -55,9 +102,16 @@ const FirstPage = () => {
                 <label>Email</label>
                 <div className="inputdiv ">
                   <input
-                    type="email"
+                    type="text"
                     placeholder="Email"
-                    {...register("Email", { required: true, maxLength: 100 })}
+                    {...register("email", {
+                      required: "Please enter the email address",
+                      maxLength: 100,
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                        message: "Please enter a valid mail address",
+                      },
+                    })}
                   />
                 </div>
               </div>
@@ -67,10 +121,10 @@ const FirstPage = () => {
                 <label>Phone Number</label>
                 <div className="inputdiv ">
                   <Controller
-                    name="Phone Number"
+                    name="phoneNum"
                     control={control}
-                    defaultValue={false}
-                    rules={{ required: true }}
+                    defaultValue={""}
+                    rules={{ required: "Please enter the phone number" }}
                     render={({ field }) => (
                       <PhoneInputWithCountrySelect
                         className="ps-2"
@@ -85,9 +139,9 @@ const FirstPage = () => {
                 <label>Website</label>
                 <div className="inputdiv ">
                   <input
-                    type="url"
+                    type="text"
                     placeholder="Website"
-                    {...register("Website", {})}
+                    {...register("website", {})}
                   />
                 </div>
               </div>
@@ -99,11 +153,13 @@ const FirstPage = () => {
                   <input
                     type="text"
                     placeholder="Description"
-                    {...register("Description", {
+                    {...register("description", {
                       required: true,
-                      max: 140,
-                      min: 0,
-                      maxLength: 140,
+                      maxLength: {
+                        value: 140,
+                        message:
+                          "Description should be less than 140 characters",
+                      },
                     })}
                   />
                 </div>
@@ -116,12 +172,7 @@ const FirstPage = () => {
                   <input
                     type="text"
                     placeholder="Extra Information"
-                    {...register("Extra Information", {
-                      required: true,
-                      max: 247,
-                      min: 0,
-                      maxLength: 247,
-                    })}
+                    {...register("extraInfo", {})}
                   />
                 </div>
               </div>
@@ -130,13 +181,13 @@ const FirstPage = () => {
               <div className="inputgroup col-5">
                 <label>Logo (Small)</label>
                 <div className="inputdiv image-uplaod-div">
-                  <ImageUpload setImageFile={setImage}></ImageUpload>
+                  <ImageUpload setImageFile={setSmallLogo}></ImageUpload>
                 </div>
               </div>
               <div className="inputgroup col-5 right">
                 <label>Logo (Big)</label>
                 <div className="inputdiv image-uplaod-div">
-                  <ImageUpload setImageFile={setImage}></ImageUpload>
+                  <ImageUpload setImageFile={setBigLogo}></ImageUpload>
                 </div>
               </div>
             </div>
@@ -145,18 +196,26 @@ const FirstPage = () => {
                 <input
                   type="checkbox"
                   placeholder=""
-                  {...register("I agree to Terms & Privacy Plicy", {})}
+                  {...register("isAgreed", {
+                    required:
+                      "Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy",
+                  })}
                 />
                 <div>
                   <span> I agree to</span>
-                  <a href="" className="terms">Terms of Service</a>
+                  <a href="" className="terms">
+                    Terms of Service
+                  </a>
                   <span>&amp;</span>
-                  <a href="" className="terms">Privacy Policy</a>
+                  <a href="" className="terms">
+                    Privacy Policy
+                  </a>
                 </div>
               </div>
               <button
                 className="submit_button p-3 px-5 position-absolute end-0 bottom-0"
                 type="submit"
+                disabled={!!errors.isAgreed}
               >
                 Register
               </button>

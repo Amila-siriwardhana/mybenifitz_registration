@@ -58,6 +58,12 @@ input[type="checkbox"] {
   background-color: #fdc11f;
   border: none;
   border-radius: $border-radius-value;
+
+  &.active {
+    background-color: white;
+    color: $color-secondary;
+    font-weight: 800;
+  }
 }
 
 .textsec {
