@@ -1,8 +1,10 @@
-import React from "react";
-import { Row } from "react-bootstrap";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import ImageUpload from "../Components/ImageUpload";
 
 const FirstPage = () => {
+  const [image, setImage] = useState<any | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -109,6 +111,20 @@ const FirstPage = () => {
                       maxLength: 247,
                     })}
                   />
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="inputgroup col-6 left">
+                <label>Logo (Small)</label>
+                <div className="inputdiv image-uplaod-div">
+                  <ImageUpload setImageFile={setImage}></ImageUpload>
+                </div>
+              </div>
+              <div className="inputgroup col-6 right">
+                <label>Logo (Big)</label>
+                <div className="inputdiv image-uplaod-div">
+                  <ImageUpload setImageFile={setImage}></ImageUpload>
                 </div>
               </div>
             </div>

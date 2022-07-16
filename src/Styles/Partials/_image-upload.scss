@@ -1,0 +1,24 @@
+.preview-image {
+  max-width: 150px;
+  max-height: 100%;
+  position: relative;
+  display: flex;
+  padding: 10px;
+
+  .upload-icon {
+    margin: auto;
+    cursor: pointer;
+  }
+
+  .remove-icon {
+    cursor: pointer;
+    color: #d9534f;
+    position: absolute;
+  }
+
+  .image {
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}

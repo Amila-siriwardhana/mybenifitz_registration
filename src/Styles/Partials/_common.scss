@@ -32,6 +32,16 @@ input[type="checkbox"] {
   padding: 5px;
 }
 
+.image-uplaod-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+  min-width: 150px;
+  max-height: 150px;
+  max-width: 150px;
+}
+
 .left {
   padding-right: 5px;
 }
@@ -50,8 +60,7 @@ input[type="checkbox"] {
   color: $color-secondary;
 }
 
-.formdiv {
-}
+.formdiv {}
 
 a {
   color: white;
