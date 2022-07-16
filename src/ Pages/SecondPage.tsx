@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import ImageUpload from "../Components/ImageUpload";
 
@@ -11,7 +11,7 @@ const SecondPage = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data: any) => console.log(data);
-  console.log(errors);
+  console.log("ERR:", errors);
 
   return (
     <div className="row">
@@ -138,7 +138,7 @@ const SecondPage = () => {
                 </div>
               </div>
             </div>
-            
+
             <span className="addlabel d-flex float-end p-1">Add Benifits</span>
 
             <div>

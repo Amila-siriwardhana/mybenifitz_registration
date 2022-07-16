@@ -19,6 +19,7 @@
     "react-dropzone": "^14.2.2",
     "react-feather": "^2.0.10",
     "react-hook-form": "^7.33.1",
+    "react-phone-number-input": "^3.2.4",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "sass": "^1.53.0",

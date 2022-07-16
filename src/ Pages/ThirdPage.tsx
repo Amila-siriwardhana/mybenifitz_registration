@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import PhoneInputWithCountrySelect from "react-phone-number-input";
 import ImageUpload from "../Components/ImageUpload";
 
 const ThirdPage = () => {
@@ -8,10 +9,11 @@ const ThirdPage = () => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm();
   const onSubmit = (data: any) => console.log(data);
-  console.log(errors);
+  console.log("ERR:", errors);
 
   return (
     <div className="card m-5">
@@ -111,10 +113,18 @@ const ThirdPage = () => {
               <div className="inputgroup col-6 left">
                 <label>Phone Number</label>
                 <div className="inputdiv ">
-                  <input
-                    type="number"
-                    placeholder="Phone Number"
-                    {...register("Phone Number", { min: 0 })}
+                  <Controller
+                    name="Phone Number"
+                    control={control}
+                    defaultValue={false}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <PhoneInputWithCountrySelect
+                        className="ps-2"
+                        placeholder="Phone Number"
+                        {...field}
+                      />
+                    )}
                   />
                 </div>
               </div>

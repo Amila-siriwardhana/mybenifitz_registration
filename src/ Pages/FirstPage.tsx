@@ -1,17 +1,19 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import PhoneInputWithCountrySelect from "react-phone-number-input";
 import ImageUpload from "../Components/ImageUpload";
 
 const FirstPage = () => {
   const [image, setImage] = useState<any | null>(null);
-
+  
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm();
   const onSubmit = (data: any) => console.log(data);
-  console.log(errors);
+  console.log("ERR:", errors);
 
   return (
     <div className="row">
@@ -56,16 +58,20 @@ const FirstPage = () => {
             </div>
             <div className="row">
               <div className="inputgroup col-6 left">
-                <label>Phone number</label>
+                <label>Phone Number</label>
                 <div className="inputdiv ">
-                  <input
-                    type="tel"
-                    placeholder="Phone number"
-                    {...register("Phone number", {
-                      required: true,
-                      minLength: 0,
-                      maxLength: 12,
-                    })}
+                  <Controller
+                    name="Phone Number"
+                    control={control}
+                    defaultValue={false}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <PhoneInputWithCountrySelect
+                        className="ps-2"
+                        placeholder="Phone Number"
+                        {...field}
+                      />
+                    )}
                   />
                 </div>
               </div>
