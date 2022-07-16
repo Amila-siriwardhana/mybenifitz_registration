@@ -4,6 +4,19 @@
   padding: 0.8rem 1.3rem;
   background-color: white;
   font-weight: 800;
+  pointer-events: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.active {
+  background-color: $color-secondary;
+  &:hover {
+    color: black;
+  }
 }
 
 .horizontal_line {

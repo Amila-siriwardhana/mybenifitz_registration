@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
 import ImageUpload from "../Components/ImageUpload";
-import logo from '../assets/images/logo.png';
+import logo from "../assets/images/logo.png";
+import { useNavigate } from "react-router-dom";
 
 const FirstPage = () => {
   const [image, setImage] = useState<any | null>(null);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -13,7 +15,10 @@ const FirstPage = () => {
     control,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: any) => {
+    console.log(data);
+    navigate("/add_business_to_club");
+  };
   console.log("ERR:", errors);
 
   return (
@@ -135,27 +140,27 @@ const FirstPage = () => {
                 </div>
               </div>
             </div>
-              <div className="w-100 right position-relative">
-                <div className="checkbox mt-4">
-                  <input
-                    type="checkbox"
-                    placeholder=""
-                    {...register("I agree to Terms & Privacy Plicy", {})}
-                  />
-                  <div>
-                    <span> I agree to </span>
-                    <a href="">Terms of Service</a>{" "}
-                    <span className="textsec">&amp;</span>{" "}
-                    <a href="">Privacy Policy</a>
-                  </div>
+            <div className="w-100 right position-relative">
+              <div className="checkbox mt-4">
+                <input
+                  type="checkbox"
+                  placeholder=""
+                  {...register("I agree to Terms & Privacy Plicy", {})}
+                />
+                <div>
+                  <span> I agree to </span>
+                  <a href="">Terms of Service</a>{" "}
+                  <span className="textsec">&amp;</span>{" "}
+                  <a href="">Privacy Policy</a>
                 </div>
-                <button
-                  className="submit_button p-3 px-5 position-absolute end-0 bottom-0"
-                  type="submit"
-                >
-                  Register
-                </button>
               </div>
+              <button
+                className="submit_button p-3 px-5 position-absolute end-0 bottom-0"
+                type="submit"
+              >
+                Register
+              </button>
+            </div>
           </form>
         </div>
       </div>
