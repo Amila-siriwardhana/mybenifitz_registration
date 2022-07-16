@@ -116,7 +116,7 @@ const ThirdPage = () => {
                   <Controller
                     name="Phone Number"
                     control={control}
-                    defaultValue={false}
+                    defaultValue={''}
                     rules={{ required: true }}
                     render={({ field }) => (
                       <PhoneInputWithCountrySelect
