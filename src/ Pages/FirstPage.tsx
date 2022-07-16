@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
 import ImageUpload from "../Components/ImageUpload";
+import logo from '../assets/images/logo.png';
 
 const FirstPage = () => {
   const [image, setImage] = useState<any | null>(null);
@@ -17,14 +18,14 @@ const FirstPage = () => {
 
   return (
     <div className="row">
-      <div className="col-6 p-0">
-        <div>LOGO</div>
+      <div className="col-6 p-0 d-flex justify-content-center align-items-center">
+        <img className="logo" src={logo}></img>
       </div>
       <div className="formdiv col-6">
         <div className="textsec mx-5">
           <h3>Register Yourself!</h3>
         </div>
-        <div className="card p-5">
+        <div className="card p-5 me-5">
           <div className="mb-2">
             <button className="submit_button px-5 py-2">Public</button>
             <span className="textsec mx-3">or</span>

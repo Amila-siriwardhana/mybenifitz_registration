@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Plus } from "react-feather";
 import { useForm } from "react-hook-form";
+import BenefitCard from "../Components/BenefitCard";
 import ImageUpload from "../Components/ImageUpload";
 
 const SecondPage = () => {
@@ -17,7 +18,7 @@ const SecondPage = () => {
   return (
     <div className="row">
       <div className="col-6 p-0">
-        <div className="card p-5">
+        <div className="card p-5 ms-5">
           <div className="row mb-2">
             <div className="col-4 left">
               <button className="submit_button w-100 py-2" type="submit">
@@ -148,7 +149,7 @@ const SecondPage = () => {
               </div>
               <div className="col-4 right position-relative">
                 <div className="add-benefits-div">
-                  <span className="textsec">Add Benifits</span>
+                  <span className="textsec">Add Benefits</span>
                   <button className="submit_button_plus">
                     <Plus />
                   </button>
@@ -158,7 +159,13 @@ const SecondPage = () => {
           </form>
         </div>
       </div>
-      <div className="col-6 p-0"></div>
+      <div className="col-6 p-0">
+        <BenefitCard />
+        <BenefitCard />
+        <BenefitCard />
+        <BenefitCard />
+        <BenefitCard />
+      </div>
     </div>
   );
 };
