@@ -16,9 +16,11 @@ const FirstPage = () => {
       <div className="col-6 p-0">
         <div>LOGO</div>
       </div>
-      <div className="col-6  p-0">
-        <div className="card">
-          <div>Build Your Club</div>
+      <div className="formdiv col-6  ">
+        <div className="textsec mx-5 ">
+          <h3>Register Yourself!</h3>
+        </div>
+        <div className="card ">
           <div>
             <button className="submit_button px-5 py-2">Public</button>
             <span className="textsec mx-5 ">or</span>

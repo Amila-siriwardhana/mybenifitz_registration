@@ -1,6 +1,7 @@
 .card {
   background-color: #1a4848;
   padding: 4rem;
+  border-radius: $border-radius-value;
 }
 
 input {
@@ -22,4 +23,7 @@ input {
 }
 .textsec {
   color: $color-secondary;
+}
+.formdiv {
+  padding: 8rem;
 }
