@@ -1,6 +1,5 @@
 .card {
   background-color: #1a4848;
-  padding: 4rem;
   border-radius: $border-radius-value;
 }
 
@@ -22,7 +21,7 @@ input[type="checkbox"] {
 }
 
 .inputgroup {
-  margin: 8px 0;
+  margin-top: 10px;
 }
 
 .inputdiv {
@@ -46,6 +45,11 @@ input[type="checkbox"] {
   padding-right: 5px;
 }
 
+.middle {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .right {
   padding-left: 5px;
 }
@@ -58,9 +62,6 @@ input[type="checkbox"] {
 
 .textsec {
   color: $color-secondary;
-}
-
-.formdiv {
 }
 
 a {
@@ -78,6 +79,7 @@ label {
   margin-left: 15px;
   font-size: 12px;
 }
+
 .inputdivtext {
   background-color: white;
   border: 1px solid #1a4848;

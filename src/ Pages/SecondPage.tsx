@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Plus } from "react-feather";
 import { useForm } from "react-hook-form";
+import BenefitCard from "../Components/BenefitCard";
 import ImageUpload from "../Components/ImageUpload";
 
 const SecondPage = () => {
@@ -16,17 +18,23 @@ const SecondPage = () => {
   return (
     <div className="row">
       <div className="col-6 p-0">
-        <div className="card ms-5">
-          <div className="d-flex justify-content-between">
-            <button className="submit_button p-3 px-5" type="submit">
-              Register
-            </button>
-            <button className="submit_button p-3 px-5" type="submit">
-              Register
-            </button>
-            <button className="submit_button p-3 px-5" type="submit">
-              Register
-            </button>
+        <div className="card p-5 ms-5">
+          <div className="row mb-2">
+            <div className="col-4 left">
+              <button className="submit_button w-100 py-2" type="submit">
+                Prepaid
+              </button>
+            </div>
+            <div className="col-4 middle">
+              <button className="submit_button w-100 py-2" type="submit">
+                Punchcard
+              </button>
+            </div>
+            <div className="col-4 right">
+              <button className="submit_button w-100 py-2" type="submit">
+                Free
+              </button>
+            </div>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="row">
@@ -102,6 +110,7 @@ const SecondPage = () => {
                 <label>Long Description</label>
                 <div className="inputdivtext ">
                   <textarea
+                    placeholder="Long Description"
                     {...register("Long Description", {
                       required: true,
                       min: 0,
@@ -116,6 +125,7 @@ const SecondPage = () => {
                 <label>Extra Information</label>
                 <div className="inputdivtext">
                   <textarea
+                    placeholder="Extra Information"
                     {...register("Extra Information", {
                       min: 0,
                       maxLength: 250,
@@ -125,26 +135,26 @@ const SecondPage = () => {
               </div>
             </div>
             <div className="row">
-              <div className="inputgroup col-6 left">
+              <div className="inputgroup col-4 left">
                 <label>Logo (Small)</label>
                 <div className="inputdiv image-uplaod-div">
                   <ImageUpload setImageFile={setImage}></ImageUpload>
                 </div>
               </div>
-              <div className="inputgroup col-6 right">
+              <div className="inputgroup col-4 middle">
                 <label>Logo (Big)</label>
                 <div className="inputdiv image-uplaod-div">
                   <ImageUpload setImageFile={setImage}></ImageUpload>
                 </div>
               </div>
-            </div>
-
-            <span className="addlabel d-flex float-end p-1">Add Benifits</span>
-
-            <div>
-              <button className="submit_button_plus px-4 py-3" type="submit">
-                +
-              </button>
+              <div className="col-4 right position-relative">
+                <div className="add-benefits-div">
+                  <span className="textsec">Add Benefits</span>
+                  <button className="submit_button_plus">
+                    <Plus />
+                  </button>
+                </div>
+              </div>
             </div>
           </form>
         </div>
@@ -153,7 +163,13 @@ const SecondPage = () => {
           +
         </button>
       </div>
-      <div className="col-6 p-0"></div>
+      <div className="col-6 p-0">
+        <BenefitCard />
+        <BenefitCard />
+        <BenefitCard />
+        <BenefitCard />
+        <BenefitCard />
+      </div>
     </div>
   );
 };

@@ -3,22 +3,24 @@
   border-radius: 30px;
   padding: 0.8rem 1.3rem;
   background-color: white;
-  font-style: bold;
-  font-weight: 600;
+  font-weight: 800;
 }
-.horizontalline {
+
+.horizontal_line {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
+  width: 50px;
   padding: 0;
   margin: 0;
   border: 1px solid black;
 }
+
 .headerdiv {
   font-style: bold;
   font-weight: 600;
 }
+
 .headertipics {
   padding-right: 15rem;
   padding-left: 15rem;

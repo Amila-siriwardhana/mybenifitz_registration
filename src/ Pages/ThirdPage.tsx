@@ -187,33 +187,43 @@ const ThirdPage = () => {
             <h3>Brand Information</h3>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="inputgroup">
-              <label>Brand Name</label>
-              <div className="inputdiv ">
-                <input
-                  type="text"
-                  placeholder="Brand Name"
-                  {...register("Brand Name", { required: true, min: 0 })}
-                />
+            <div className="row">
+              <div className="inputgroup">
+                <label>Brand Name</label>
+                <div className="inputdiv ">
+                  <input
+                    type="text"
+                    placeholder="Brand Name"
+                    {...register("Brand Name", { required: true, min: 0 })}
+                  />
+                </div>
               </div>
             </div>
-            <div className="inputgroup">
-              <label>Long Description</label>
-              <div className="inputdivtext ">
-                <textarea
-                  placeholder="Long Description"
-                  {...register("Description", {})}
-                />
+            <div className="row h-auto">
+              <div className="inputgroup">
+                <label>Long Description</label>
+                <div className="inputdivtext ">
+                  <textarea
+                    placeholder="Long Description"
+                    {...register("Description", {})}
+                  />
+                </div>
               </div>
             </div>
-            <div className="inputgroup col-6 left">
-              <label>Logo (Small)</label>
-              <div className="inputdiv image-uplaod-div">
-                <ImageUpload setImageFile={setImage}></ImageUpload>
+            <div className="row">
+              <div className="col-6">
+                <div className="inputgroup col-6 left">
+                  <label>Logo (Small)</label>
+                  <div className="inputdiv image-uplaod-div">
+                    <ImageUpload setImageFile={setImage}></ImageUpload>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div>
-              <button className="submit_button px-4 py-2 m-5">Register</button>
+              <div className="col-6 position-relative">
+                <button className="submit_button p-3 px-5 position-absolute end-0 bottom-0">
+                  Register
+                </button>
+              </div>
             </div>
           </form>
         </div>
