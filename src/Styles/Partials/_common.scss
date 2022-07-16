@@ -31,6 +31,13 @@ input[type="checkbox"] {
   border-radius: $border-radius-value;
   padding: 5px;
 }
+.image-uplaod-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 20rem;
+  max-width: 20rem;
+}
 
 .left {
   padding-right: 5px;
