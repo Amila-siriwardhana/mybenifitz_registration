@@ -1,7 +1,10 @@
-import React from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import ImageUpload from "../Components/ImageUpload";
 
 const ThirdPage = () => {
+  const [image, setImage] = useState<any | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -193,7 +196,12 @@ const ThirdPage = () => {
                 />
               </div>
             </div>
-
+            <div className="inputgroup col-6 left">
+              <label>Logo (Small)</label>
+              <div className="inputdiv image-uplaod-div">
+                <ImageUpload setImageFile={setImage}></ImageUpload>
+              </div>
+            </div>
             <div>
               <button className="submit_button px-4 py-2 m-5">Register</button>
             </div>

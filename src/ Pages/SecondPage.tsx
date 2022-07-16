@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import ImageUpload from "../Components/ImageUpload";
 
 const SecondPage = () => {
+  const [image, setImage] = useState<any | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -83,35 +86,59 @@ const SecondPage = () => {
                 </div>
               </div>
             </div>
-            <div className="inputgroup">
-              <label>Description</label>
-              <div className="inputdivtext ">
-                <textarea
-                  placeholder="Description"
-                  {...register("Description", { min: 0, maxLength: 20 })}
-                />
+            <div className="row">
+              <div className="inputgroup">
+                <label>Description</label>
+                <div className="inputdivtext ">
+                  <textarea
+                    placeholder="Description"
+                    {...register("Description", { min: 0, maxLength: 20 })}
+                  />
+                </div>
               </div>
             </div>
-            <div className="inputgroup">
-              <label>Long Description</label>
-              <div className="inputdivtext ">
-                <textarea
-                  {...register("Long Description", {
-                    required: true,
-                    min: 0,
-                    maxLength: 200,
-                  })}
-                />
+            <div className="row">
+              <div className="inputgroup">
+                <label>Long Description</label>
+                <div className="inputdivtext ">
+                  <textarea
+                    {...register("Long Description", {
+                      required: true,
+                      min: 0,
+                      maxLength: 200,
+                    })}
+                  />
+                </div>
               </div>
             </div>
-            <div className="inputgroup">
-              <label>Extra Information</label>
-              <div className="inputdivtext">
-                <textarea
-                  {...register("Extra Information", { min: 0, maxLength: 250 })}
-                />
+            <div className="row">
+              <div className="inputgroup">
+                <label>Extra Information</label>
+                <div className="inputdivtext">
+                  <textarea
+                    {...register("Extra Information", {
+                      min: 0,
+                      maxLength: 250,
+                    })}
+                  />
+                </div>
               </div>
             </div>
+            <div className="row">
+              <div className="inputgroup col-6 left">
+                <label>Logo (Small)</label>
+                <div className="inputdiv image-uplaod-div">
+                  <ImageUpload setImageFile={setImage}></ImageUpload>
+                </div>
+              </div>
+              <div className="inputgroup col-6 right">
+                <label>Logo (Big)</label>
+                <div className="inputdiv image-uplaod-div">
+                  <ImageUpload setImageFile={setImage}></ImageUpload>
+                </div>
+              </div>
+            </div>
+            
             <span className="addlabel d-flex float-end p-1">Add Benifits</span>
 
             <div>
