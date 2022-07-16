@@ -18,16 +18,22 @@ const SecondPage = () => {
     <div className="row">
       <div className="col-6 p-0">
         <div className="card p-5">
-          <div className="d-flex justify-content-between">
-            <button className="submit_button p-3 px-5" type="submit">
-              Register
-            </button>
-            <button className="submit_button p-3 px-5" type="submit">
-              Register
-            </button>
-            <button className="submit_button p-3 px-5" type="submit">
-              Register
-            </button>
+          <div className="row mb-2">
+            <div className="col-4 left">
+              <button className="submit_button w-100 py-2" type="submit">
+                Prepaid
+              </button>
+            </div>
+            <div className="col-4 middle">
+              <button className="submit_button w-100 py-2" type="submit">
+                Punchcard
+              </button>
+            </div>
+            <div className="col-4 right">
+              <button className="submit_button w-100 py-2" type="submit">
+                Free
+              </button>
+            </div>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="row">

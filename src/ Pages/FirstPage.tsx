@@ -5,7 +5,7 @@ import ImageUpload from "../Components/ImageUpload";
 
 const FirstPage = () => {
   const [image, setImage] = useState<any | null>(null);
-  
+
   const {
     register,
     handleSubmit,
@@ -25,7 +25,7 @@ const FirstPage = () => {
           <h3>Register Yourself!</h3>
         </div>
         <div className="card p-5">
-          <div>
+          <div className="mb-2">
             <button className="submit_button px-5 py-2">Public</button>
             <span className="textsec mx-3">or</span>
             <button className="submit_button px-5 py-2">Private</button>
@@ -121,36 +121,40 @@ const FirstPage = () => {
               </div>
             </div>
             <div className="row">
-              <div className="inputgroup col-6 left">
+              <div className="inputgroup col-5">
                 <label>Logo (Small)</label>
                 <div className="inputdiv image-uplaod-div">
                   <ImageUpload setImageFile={setImage}></ImageUpload>
                 </div>
               </div>
-              <div className="inputgroup col-6 right">
+              <div className="inputgroup col-5 right">
                 <label>Logo (Big)</label>
                 <div className="inputdiv image-uplaod-div">
                   <ImageUpload setImageFile={setImage}></ImageUpload>
                 </div>
               </div>
             </div>
-
-            <div className="checkbox p-0">
-              <input
-                type="checkbox"
-                placeholder=""
-                {...register("I agree to Terms & Privacy Plicy", {})}
-              />
-              <span> I agree to </span>
-              <a href="">Terms of Service</a>{" "}
-              <span className="textsec">&amp;</span>{" "}
-              <a href="">Privacy Policy</a>
-            </div>
-            <div>
-              <button className="submit_button p-3 px-5" type="submit">
-                Register
-              </button>
-            </div>
+              <div className="w-100 right position-relative">
+                <div className="checkbox mt-4">
+                  <input
+                    type="checkbox"
+                    placeholder=""
+                    {...register("I agree to Terms & Privacy Plicy", {})}
+                  />
+                  <div>
+                    <span> I agree to </span>
+                    <a href="">Terms of Service</a>{" "}
+                    <span className="textsec">&amp;</span>{" "}
+                    <a href="">Privacy Policy</a>
+                  </div>
+                </div>
+                <button
+                  className="submit_button p-3 px-5 position-absolute end-0 bottom-0"
+                  type="submit"
+                >
+                  Register
+                </button>
+              </div>
           </form>
         </div>
       </div>
