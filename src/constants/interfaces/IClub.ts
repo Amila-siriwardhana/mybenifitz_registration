@@ -1,6 +1,6 @@
 import { ClubTypes } from "../enums";
 
-export interface IClub {
+export default interface IClub {
   name: string;
   description: string;
   phoneNum: number;
@@ -8,6 +8,6 @@ export interface IClub {
   website: string;
   extraInfo: string;
   type: ClubTypes;
-  smallImage: string;
-  largeImage: string;
+  smallImage: any;
+  largeImage: any;
 }

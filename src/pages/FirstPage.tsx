@@ -5,7 +5,7 @@ import ImageUpload from "../components/ImageUpload";
 import logo from "../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
 import { ClubTypes } from "../constants/enums";
-import { IClub } from "../constants/interfaces/IClub";
+import IClub from "../constants/interfaces/IClub";
 
 const FirstPage = () => {
   const navigate = useNavigate();
