@@ -2,8 +2,8 @@ import { useState } from "react";
 import { ArrowRight, Plus } from "react-feather";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import BenefitCard from "../Components/BenefitCard";
-import ImageUpload from "../Components/ImageUpload";
+import BenefitCard from "../components/BenefitCard";
+import ImageUpload from "../components/ImageUpload";
 
 const SecondPage = () => {
   const [image, setImage] = useState<any | null>(null);

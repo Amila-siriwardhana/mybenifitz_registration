@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
-import ImageUpload from "../Components/ImageUpload";
+import ImageUpload from "../components/ImageUpload";
 import logo from "../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
 
