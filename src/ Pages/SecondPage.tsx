@@ -1,42 +1,47 @@
 import { useState } from "react";
 import { ArrowRight, Plus } from "react-feather";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import BenefitCard from "../Components/BenefitCard";
 import ImageUpload from "../Components/ImageUpload";
 
 const SecondPage = () => {
   const [image, setImage] = useState<any | null>(null);
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: any) => {
+    console.log(data);
+    navigate("/define_brand");
+  };
   console.log("ERR:", errors);
 
   return (
-    <div className="row">
-      <div className="col-6 p-0">
-        <div className="card p-5 ms-5">
-          <div className="row mb-2">
-            <div className="col-4 left">
-              <button className="submit_button w-100 py-2" type="submit">
-                Prepaid
-              </button>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="row">
+        <div className="col-6 p-0">
+          <div className="card p-5 ms-5">
+            <div className="row mb-2">
+              <div className="col-4 left">
+                <button className="submit_button w-100 py-2" type="submit">
+                  Prepaid
+                </button>
+              </div>
+              <div className="col-4 middle">
+                <button className="submit_button w-100 py-2" type="submit">
+                  Punchcard
+                </button>
+              </div>
+              <div className="col-4 right">
+                <button className="submit_button w-100 py-2" type="submit">
+                  Free
+                </button>
+              </div>
             </div>
-            <div className="col-4 middle">
-              <button className="submit_button w-100 py-2" type="submit">
-                Punchcard
-              </button>
-            </div>
-            <div className="col-4 right">
-              <button className="submit_button w-100 py-2" type="submit">
-                Free
-              </button>
-            </div>
-          </div>
-          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="row">
               <div className="inputgroup col-6 left">
                 <label>Price</label>
@@ -156,23 +161,23 @@ const SecondPage = () => {
                 </div>
               </div>
             </div>
-          </form>
+          </div>
+        </div>
+        <div className="col-6 p-0 position-relative">
+          <BenefitCard />
+          <BenefitCard />
+          <BenefitCard />
+          <BenefitCard />
+          <BenefitCard />
+          <div className=" d-inline-flex justify-content-center align-items-center position-absolute bottom-0 mb-5 ms-5">
+            <span className="textsec benefit-card">Next</span>
+            <button className="submit_button_plus" type="submit">
+              <ArrowRight />
+            </button>
+          </div>
         </div>
       </div>
-      <div className="col-6 p-0 position-relative">
-        <BenefitCard />
-        <BenefitCard />
-        <BenefitCard />
-        <BenefitCard />
-        <BenefitCard />
-        <div className=" d-inline-flex justify-content-center align-items-center position-absolute bottom-0 mb-5 ms-5">
-          <span className="textsec benefit-card">Next</span>
-          <button className="submit_button_plus " type="submit">
-            <ArrowRight />
-          </button>
-        </div>
-      </div>
-    </div>
+    </form>
   );
 };
 export default SecondPage;
