@@ -13,53 +13,72 @@ const ThirdPage = () => {
   return (
     <div className="card m-5">
       <div className="row">
-        <div className="col-6">
-          <div className="textsec mx-5 ">
+        <div className="col-6 p-5">
+          <div className="textsec">
             <h3>Create Business Account</h3>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="inputgroup">
-              <label>Email</label>
-              <div className="inputdiv ">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  {...register("Email", {
-                    required: true,
-                    min: 0,
-                    maxLength: 80,
-                  })}
-                />
+            <div className="row">
+              <div className="inputgroup col-6 left">
+                <label>Email</label>
+                <div className="inputdiv ">
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    {...register("Email", {
+                      required: true,
+                      min: 0,
+                      maxLength: 80,
+                    })}
+                  />
+                </div>
+              </div>
+              <div className="inputgroup col-6 right">
+                <label>Password</label>
+                <div className="inputdiv ">
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    {...register("Password", {
+                      required: true,
+                      min: 0,
+                      maxLength: 100,
+                    })}
+                  />
+                </div>
               </div>
             </div>
-            <div className="inputgroup ">
-              <label>Password</label>
-              <div className="inputdiv ">
-                <input
-                  type="password"
-                  placeholder="Password"
-                  {...register("Password", {
-                    required: true,
-                    min: 0,
-                    maxLength: 100,
-                  })}
-                />
+            <div className="row">
+              <div className="inputgroup col-6 left">
+                <label>Account Name</label>
+                <div className="inputdiv">
+                  <input
+                    type="text"
+                    placeholder="Account Name"
+                    {...register("Account Name", {
+                      required: true,
+                      maxLength: 12,
+                    })}
+                  />
+                </div>
+              </div>
+              <div className="inputgroup col-6 right">
+                <label>Business Name</label>
+                <div className="inputdiv ">
+                  <input
+                    type="text"
+                    placeholder="Business Name"
+                    {...register("Business Name", {
+                      max: 20,
+                      min: 0,
+                      maxLength: 17,
+                    })}
+                  />
+                </div>
               </div>
             </div>
-
-            <div className="inputgroup ">
-              <label>Account Name</label>
-              <div className="inputdiv">
-                <input
-                  type="text"
-                  placeholder="Account Name"
-                  {...register("Account Name", {
-                    required: true,
-                    maxLength: 12,
-                  })}
-                />
-              </div>
-              <div className="inputgroup ">
+            <div className="row">
+              <div className="inputgroup col-6 left">
                 <label>Brand ID</label>
                 <div className="inputdiv ">
                   <input
@@ -69,88 +88,72 @@ const ThirdPage = () => {
                   />
                 </div>
               </div>
-            </div>
-
-            <div className="inputgroup ">
-              <label>Business Name</label>
-              <div className="inputdiv ">
-                <input
-                  type="text"
-                  placeholder="Business Name"
-                  {...register("Business Name", {
-                    max: 20,
-                    min: 0,
-                    maxLength: 17,
-                  })}
-                />
+              <div className="inputgroup col-6 right">
+                <label>Business Address</label>
+                <div className="inputdiv ">
+                  <input
+                    type="text"
+                    placeholder="Business Address"
+                    {...register("Business Address", {
+                      required: true,
+                      max: 35,
+                      min: 0,
+                      maxLength: 35,
+                    })}
+                  />
+                </div>
               </div>
             </div>
-
-            <div className="inputgroup ">
-              <label>Business Address</label>
-              <div className="inputdiv ">
-                <input
-                  type="text"
-                  placeholder="Business Address"
-                  {...register("Business Address", {
-                    required: true,
-                    max: 35,
-                    min: 0,
-                    maxLength: 35,
-                  })}
-                />
+            <div className="row">
+              <div className="inputgroup col-6 left">
+                <label>Phone Number</label>
+                <div className="inputdiv ">
+                  <input
+                    type="number"
+                    placeholder="Phone Number"
+                    {...register("Phone Number", { min: 0 })}
+                  />
+                </div>
+              </div>
+              <div className="inputgroup col-6 right">
+                <label>Contact Name</label>
+                <div className="inputdiv ">
+                  <input
+                    type="text"
+                    placeholder="Contact Name"
+                    {...register("Contact Name", {})}
+                  />
+                </div>
               </div>
             </div>
-
-            <div className="inputgroup ">
-              <label>Phone Number</label>
-              <div className="inputdiv ">
-                <input
-                  type="number"
-                  placeholder="Phone Number"
-                  {...register("Phone Number", { min: 0 })}
-                />
+            <div className="row">
+              <div className="inputgroup col-6 left">
+                <label>Opening Hours</label>
+                <div className="inputdiv ">
+                  <input
+                    type="text"
+                    placeholder="Opening Hours"
+                    {...register("Opening Hours", {
+                      max: 25,
+                      min: 0,
+                      maxLength: 25,
+                    })}
+                  />
+                </div>
               </div>
-            </div>
-
-            <div className="inputgroup ">
-              <label>Opening Hours</label>
-              <div className="inputdiv ">
-                <input
-                  type="text"
-                  placeholder="Opening Hours"
-                  {...register("Opening Hours", {
-                    max: 25,
-                    min: 0,
-                    maxLength: 25,
-                  })}
-                />
-              </div>
-            </div>
-
-            <div className="inputgroup ">
-              <label>Special Opening Hours</label>
-              <div className="inputdiv ">
-                <input
-                  type="text"
-                  placeholder="Special Opening Hours"
-                  {...register("Special Opening Hours", {
-                    max: 25,
-                    min: 0,
-                    maxLength: 25,
-                  })}
-                />
-              </div>
-            </div>
-
-            <div className="inputgroup ">
-              <label>Contact Name</label>
-              <div className="inputdiv ">
-                <input
-                  type="text"
-                  placeholder="Contact Name"
-                  {...register("Contact Name", {})}
-                />
+              <div className="inputgroup col-6 right">
+                <label>Special Opening Hours</label>
+                <div className="inputdiv ">
+                  <input
+                    type="text"
+                    placeholder="Special Opening Hours"
+                    {...register("Special Opening Hours", {
+                      max: 25,
+                      min: 0,
+                      maxLength: 25,
+                    })}
+                  />
+                </div>
               </div>
             </div>
 
@@ -166,12 +169,12 @@ const ThirdPage = () => {
             </div>
           </form>
         </div>
-        <div className="col-6">
-          <div className="textsec mx-5 ">
+        <div className="col-6 p-5">
+          <div className="textsec">
             <h3>Brand Information</h3>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="inputgroup ">
+            <div className="inputgroup">
               <label>Brand Name</label>
               <div className="inputdiv ">
                 <input
@@ -181,11 +184,13 @@ const ThirdPage = () => {
                 />
               </div>
             </div>
-
-            <div className="inputgroup ">
+            <div className="inputgroup">
               <label>Long Description</label>
-              <div className="inputdiv ">
-                <textarea {...register("Description", {})} />
+              <div className="inputdiv p-3">
+                <textarea
+                  placeholder="Long Description"
+                  {...register("Description", {})}
+                />
               </div>
             </div>
 
