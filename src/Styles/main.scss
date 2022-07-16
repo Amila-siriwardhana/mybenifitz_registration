@@ -29,11 +29,12 @@ body {
 
 @import 'react-phone-number-input/style.css';
 
-@import "./Partials/variables";
-@import "./Partials/common";
-@import "./Partials/image-upload";
-@import "./Partials/firstpage";
-@import "./Partials/secondpage";
-@import "./Partials/benefit-card";
-@import "./Partials/thirdpage";
-@import "./Partials//header";
+@import "./partials/hide-number-input-arrows"; // hide the arrows on the number input
+@import "./partials/variables";
+@import "./partials/common";
+@import "./partials/image-upload";
+@import "./partials/firstpage";
+@import "./partials/secondpage";
+@import "./partials/benefit-card";
+@import "./partials/thirdpage";
+@import "./partials//header";
