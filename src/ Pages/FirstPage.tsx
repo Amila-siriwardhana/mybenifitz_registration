@@ -27,63 +27,81 @@ const FirstPage = () => {
             <button className="submit_button px-5 py-2">Private</button>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="inputdiv p-3">
-              <input
-                type="text"
-                placeholder="First name"
-                {...register("First name", { required: true, maxLength: 80 })}
-              />
+            <div className="inputgroup ">
+              <label>Club name</label>
+              <div className="inputdiv ">
+                <input
+                  type="text"
+                  placeholder="Club name"
+                  {...register("Club name", { required: true, maxLength: 80 })}
+                />
+              </div>
+            </div>
+            <div className="inputgroup">
+              <label>Email</label>
+              <div className="inputdiv ">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  {...register("Email", { required: true, maxLength: 100 })}
+                />
+              </div>
+            </div>
+            <div className="inputgroup">
+              <label>Phone number</label>
+              <div className="inputdiv ">
+                <input
+                  type="tel"
+                  placeholder="Phone number"
+                  {...register("Phone number", {
+                    required: true,
+                    minLength: 0,
+                    maxLength: 12,
+                  })}
+                />
+              </div>
+            </div>
+            <div className="inputgroup">
+              <label>Description</label>
+              <div className="inputdiv ">
+                <input
+                  type="text"
+                  placeholder="Description"
+                  {...register("Description", {
+                    required: true,
+                    max: 140,
+                    min: 0,
+                    maxLength: 140,
+                  })}
+                />
+              </div>
+            </div>
+            <div className="inputgroup">
+              <label>Website</label>
+              <div className="inputdiv ">
+                <input
+                  type="url"
+                  placeholder="Website"
+                  {...register("Website", {})}
+                />
+              </div>
+            </div>
+            <div className="inputgroup">
+              <label>Extra Information</label>
+              <div className="inputdiv ">
+                <input
+                  type="text"
+                  placeholder="Extra Information"
+                  {...register("Extra Information", {
+                    required: true,
+                    max: 247,
+                    min: 0,
+                    maxLength: 247,
+                  })}
+                />
+              </div>
             </div>
 
-            <div className="inputdiv p-3">
-              <input
-                type="text"
-                placeholder="Last name"
-                {...register("Last name", { required: true, maxLength: 100 })}
-              />
-            </div>
-            <div className="inputdiv p-3">
-              <input
-                type="tel"
-                placeholder="Mobile number"
-                {...register("Mobile number", {
-                  required: true,
-                  minLength: 0,
-                  maxLength: 12,
-                })}
-              />
-            </div>
-            <div className="inputdiv p-3">
-              <input
-                type="text"
-                placeholder="Description"
-                {...register("Description", {
-                  required: true,
-                  max: 140,
-                  min: 0,
-                  maxLength: 140,
-                })}
-              />
-            </div>
-            <div className="inputdiv p-3">
-              <input
-                type="url"
-                placeholder="Website"
-                {...register("Website", {})}
-              />
-            </div>
-            <div className="inputdiv p-3">
-              <input
-                type="text"
-                placeholder="Extra Information"
-                {...register("Extra Information", {
-                  required: true,
-                  max: 247,
-                  min: 0,
-                  maxLength: 247,
-                })}
-              />
-            </div>
             <div className="checkbox p-0">
               <input
                 type="checkbox"

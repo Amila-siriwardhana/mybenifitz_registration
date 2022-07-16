@@ -13,64 +13,73 @@ const SecondPage = () => {
   return (
     <div className="row">
       <div className="col-6 p-0">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="inputdiv p-3">
-            <input
-              type="number"
-              placeholder="Price"
-              {...register("Price", { required: true, min: 0, maxLength: 80 })}
-            />{" "}
-          </div>
-          <div className="inputdiv p-3">
-            <input
-              type="number"
-              placeholder="Points"
-              {...register("Points", {
-                required: true,
-                min: 0,
-                maxLength: 100,
-              })}
-            />{" "}
-          </div>
-          <div className="inputdiv p-3">
-            <select {...register("Possible Purchase", { required: true })}>
-              <option value="Null"> Null</option>
-              <option value="1"> 1</option>
-            </select>{" "}
-          </div>
-          <div className="inputdiv p-3">
-            <input
-              type="number"
-              placeholder="Discount Amount"
-              {...register("Discount Amount", {
-                required: true,
-                min: 0,
-                maxLength: 140,
-              })}
-            />{" "}
-          </div>
-          <div className="inputdiv p-3">
-            <textarea {...register("Description", { min: 0, maxLength: 20 })} />{" "}
-          </div>
-          <div className="inputdiv p-3">
-            <textarea
-              {...register("Long Description", {
-                required: true,
-                min: 0,
-                maxLength: 200,
-              })}
-            />{" "}
-          </div>
-          <div className="inputdiv p-3">
-            <textarea
-              {...register("Extra Information", { min: 0, maxLength: 250 })}
-            />{" "}
-          </div>
+        <div className="card">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="inputdiv p-3">
+              <input
+                type="number"
+                placeholder="Price"
+                {...register("Price", {
+                  required: true,
+                  min: 0,
+                  maxLength: 80,
+                })}
+              />
+            </div>
+            <div className="inputdiv p-3">
+              <input
+                type="number"
+                placeholder="Points"
+                {...register("Points", {
+                  required: true,
+                  min: 0,
+                  maxLength: 100,
+                })}
+              />
+            </div>
+            <div className="inputdiv p-3">
+              <select {...register("Possible Purchase", { required: true })}>
+                <option value="Null"> Null</option>
+                <option value="1"> 1</option>
+              </select>
+            </div>
+            <div className="inputdiv p-3">
+              <input
+                type="number"
+                placeholder="Discount Amount"
+                {...register("Discount Amount", {
+                  required: true,
+                  min: 0,
+                  maxLength: 140,
+                })}
+              />
+            </div>
+            <div className="inputdiv p-3">
+              <textarea
+                placeholder="Description"
+                {...register("Description", { min: 0, maxLength: 20 })}
+              />
+            </div>
+            <div className="inputdiv p-3">
+              <textarea
+                {...register("Long Description", {
+                  required: true,
+                  min: 0,
+                  maxLength: 200,
+                })}
+              />
+            </div>
+            <div className="inputdiv p-3">
+              <textarea
+                {...register("Extra Information", { min: 0, maxLength: 250 })}
+              />
+            </div>
 
-          <div className="inputdiv p-3">
-            <input type="submit" />{" "}
-          </div>
-        </form>
+            <div className="inputdiv p-3">
+              <input type="submit" />
+            </div>
+          </form>
+        </div>
       </div>
       <div className="col-6 p-0"></div>
     </div>
