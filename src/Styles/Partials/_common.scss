@@ -11,6 +11,10 @@ input {
     outline: none;
   }
 }
+input[type="checkbox"] {
+  width: 1rem;
+  margin-right: 1rem;
+}
 .inputdiv {
   background-color: white;
   border: 1px solid #1a4848;
@@ -25,5 +29,13 @@ input {
   color: $color-secondary;
 }
 .formdiv {
-  padding: 8rem;
+  padding: 0 8rem;
+}
+a {
+  color: white;
+  padding: 0 0.5rem;
+  text-decoration: none;
+  &:hover {
+    color: $color-secondary;
+  }
 }

@@ -84,13 +84,14 @@ const FirstPage = () => {
                 })}
               />
             </div>
-            <div className="checkbox p-3">
+            <div className="checkbox p-0">
               <input
                 type="checkbox"
-                placeholder="I agree to Terms & Privacy Plicy"
+                placeholder=""
                 {...register("I agree to Terms & Privacy Plicy", {})}
               />
-              I agree to Terms & Privacy Plicy
+              I agree to <a href="">Terms of Service</a>{" "}
+              <span className="textsec">&</span> <a href="">Privacy Policy</a>
             </div>
             <div>
               <button className="submit_button p-3 px-5" type="submit">
