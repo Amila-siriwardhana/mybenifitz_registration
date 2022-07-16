@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus } from "react-feather";
+import { ArrowRight, Plus } from "react-feather";
 import { useForm } from "react-hook-form";
 import BenefitCard from "../Components/BenefitCard";
 import ImageUpload from "../Components/ImageUpload";
@@ -158,17 +158,19 @@ const SecondPage = () => {
             </div>
           </form>
         </div>
-        <span>Next</span>
-        <button className="submit_button_plus px-4 py-3" type="submit">
-          +
-        </button>
       </div>
-      <div className="col-6 p-0">
+      <div className="col-6 p-0 position-relative">
         <BenefitCard />
         <BenefitCard />
         <BenefitCard />
         <BenefitCard />
         <BenefitCard />
+        <div className=" d-inline-flex justify-content-center align-items-center position-absolute bottom-0 mb-5 ms-5">
+          <span className="textsec benefit-card">Next</span>
+          <button className="submit_button_plus " type="submit">
+            <ArrowRight />
+          </button>
+        </div>
       </div>
     </div>
   );
