@@ -24,7 +24,7 @@ const FirstPage = () => {
         <div className="textsec mx-5">
           <h3>Register Yourself!</h3>
         </div>
-        <div className="card">
+        <div className="card p-5">
           <div>
             <button className="submit_button px-5 py-2">Public</button>
             <span className="textsec mx-3">or</span>

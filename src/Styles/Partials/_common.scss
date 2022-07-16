@@ -1,6 +1,5 @@
 .card {
   background-color: #1a4848;
-  padding: 4rem;
   border-radius: $border-radius-value;
 }
 
@@ -22,7 +21,7 @@ input[type="checkbox"] {
 }
 
 .inputgroup {
-  margin: 8px 0;
+  margin: 5px 0;
 }
 
 .inputdiv {
@@ -45,7 +44,10 @@ input[type="checkbox"] {
 .left {
   padding-right: 5px;
 }
-
+.middle {
+  padding-left: 5px;
+  padding-right: 5px;
+}
 .right {
   padding-left: 5px;
 }
