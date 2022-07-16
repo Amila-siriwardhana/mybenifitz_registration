@@ -60,7 +60,8 @@ input[type="checkbox"] {
   color: $color-secondary;
 }
 
-.formdiv {}
+.formdiv {
+}
 
 a {
   color: white;
@@ -80,6 +81,6 @@ label {
 .inputdivtext {
   background-color: white;
   border: 1px solid #1a4848;
-  border-radius: 18px;
+  border-radius: $text-area-border-radius;
   padding: 5px;
 }

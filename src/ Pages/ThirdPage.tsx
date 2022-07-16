@@ -186,7 +186,7 @@ const ThirdPage = () => {
             </div>
             <div className="inputgroup">
               <label>Long Description</label>
-              <div className="inputdiv p-3">
+              <div className="inputdivtext ">
                 <textarea
                   placeholder="Long Description"
                   {...register("Description", {})}
