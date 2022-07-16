@@ -1,9 +1,9 @@
 .preview-image {
-  width: 100%;
-  height: 250px;
+  max-width: 150px;
+  max-height: 100%;
   position: relative;
   display: flex;
-  padding: 1em;
+  padding: 10px;
 
   .upload-icon {
     margin: auto;
@@ -18,5 +18,7 @@
 
   .image {
     margin: auto;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
