@@ -148,10 +148,10 @@ const FirstPage = () => {
                   {...register("I agree to Terms & Privacy Plicy", {})}
                 />
                 <div>
-                  <span> I agree to </span>
-                  <a href="">Terms of Service</a>{" "}
-                  <span className="textsec">&amp;</span>{" "}
-                  <a href="">Privacy Policy</a>
+                  <span> I agree to</span>
+                  <a href="" className="terms">Terms of Service</a>
+                  <span>&amp;</span>
+                  <a href="" className="terms">Privacy Policy</a>
                 </div>
               </div>
               <button
