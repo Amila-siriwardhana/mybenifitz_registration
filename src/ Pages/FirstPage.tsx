@@ -78,35 +78,38 @@ const FirstPage = () => {
                 </div>
               </div>
             </div>
-
-            <div className="inputgroup">
-              <label>Description</label>
-              <div className="inputdiv">
-                <input
-                  type="text"
-                  placeholder="Description"
-                  {...register("Description", {
-                    required: true,
-                    max: 140,
-                    min: 0,
-                    maxLength: 140,
-                  })}
-                />
+            <div className="row">
+              <div className="inputgroup">
+                <label>Description</label>
+                <div className="inputdiv">
+                  <input
+                    type="text"
+                    placeholder="Description"
+                    {...register("Description", {
+                      required: true,
+                      max: 140,
+                      min: 0,
+                      maxLength: 140,
+                    })}
+                  />
+                </div>
               </div>
             </div>
-            <div className="inputgroup">
-              <label>Extra Information</label>
-              <div className="inputdiv">
-                <input
-                  type="text"
-                  placeholder="Extra Information"
-                  {...register("Extra Information", {
-                    required: true,
-                    max: 247,
-                    min: 0,
-                    maxLength: 247,
-                  })}
-                />
+            <div className="row">
+              <div className="inputgroup">
+                <label>Extra Information</label>
+                <div className="inputdiv">
+                  <input
+                    type="text"
+                    placeholder="Extra Information"
+                    {...register("Extra Information", {
+                      required: true,
+                      max: 247,
+                      min: 0,
+                      maxLength: 247,
+                    })}
+                  />
+                </div>
               </div>
             </div>
 
