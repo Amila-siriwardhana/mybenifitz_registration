@@ -18,6 +18,12 @@ const FirstPage = () => {
       </div>
       <div className="col-6  p-0">
         <div className="card">
+          <div>Build Your Club</div>
+          <div>
+            <button className="submit_button px-5 py-2">Public</button>
+            <span className="textsec mx-5 ">or</span>
+            <button className="submit_button px-5 py-2">Private</button>
+          </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="inputdiv p-3">
               <input
@@ -76,16 +82,19 @@ const FirstPage = () => {
                 })}
               />
             </div>
-            <div className=" p-3">
+            <div className="checkbox p-3">
               <input
                 type="checkbox"
                 placeholder="I agree to Terms & Privacy Plicy"
                 {...register("I agree to Terms & Privacy Plicy", {})}
               />
+              I agree to Terms & Privacy Plicy
             </div>
-            <button className="submit_button p-3 px-5" type="submit">
-              Register
-            </button>
+            <div>
+              <button className="submit_button p-3 px-5" type="submit">
+                Register
+              </button>
+            </div>
           </form>
         </div>
       </div>
