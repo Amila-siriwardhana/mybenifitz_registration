@@ -13,7 +13,18 @@ const SecondPage = () => {
   return (
     <div className="row">
       <div className="col-6 p-0">
-        <div className="card">
+        <div className="card ms-5">
+          <div className="d-flex justify-content-between">
+            <button className="submit_button p-3 px-5" type="submit">
+              Register
+            </button>
+            <button className="submit_button p-3 px-5" type="submit">
+              Register
+            </button>
+            <button className="submit_button p-3 px-5" type="submit">
+              Register
+            </button>
+          </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="row">
               <div className="inputgroup col-6 left">
@@ -101,10 +112,9 @@ const SecondPage = () => {
                 />
               </div>
             </div>
+            <span className="addlabel d-flex float-end p-1">Add Benifits</span>
+
             <div>
-              <button className="submit_button_benifits px-4 py-2 m-5">
-                Add Benifits
-              </button>
               <button className="submit_button_plus px-4 py-3" type="submit">
                 +
               </button>
