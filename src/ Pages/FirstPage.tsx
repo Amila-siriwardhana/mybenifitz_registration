@@ -81,7 +81,7 @@ const FirstPage = () => {
 
             <div className="inputgroup">
               <label>Description</label>
-              <div className="inputdiv ">
+              <div className="inputdiv">
                 <input
                   type="text"
                   placeholder="Description"
@@ -96,7 +96,7 @@ const FirstPage = () => {
             </div>
             <div className="inputgroup">
               <label>Extra Information</label>
-              <div className="inputdiv ">
+              <div className="inputdiv">
                 <input
                   type="text"
                   placeholder="Extra Information"
@@ -116,8 +116,10 @@ const FirstPage = () => {
                 placeholder=""
                 {...register("I agree to Terms & Privacy Plicy", {})}
               />
-             <span> I agree to </span><a href="">Terms of Service</a>{" "}
-              <span className="textsec">&amp;</span> <a href="">Privacy Policy</a>
+              <span> I agree to </span>
+              <a href="">Terms of Service</a>{" "}
+              <span className="textsec">&amp;</span>{" "}
+              <a href="">Privacy Policy</a>
             </div>
             <div>
               <button className="submit_button p-3 px-5" type="submit">
