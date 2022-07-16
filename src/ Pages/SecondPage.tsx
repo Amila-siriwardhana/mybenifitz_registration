@@ -85,7 +85,7 @@ const SecondPage = () => {
             </div>
             <div className="inputgroup">
               <label>Description</label>
-              <div className="inputdiv ">
+              <div className="inputdivtext ">
                 <textarea
                   placeholder="Description"
                   {...register("Description", { min: 0, maxLength: 20 })}
@@ -94,7 +94,7 @@ const SecondPage = () => {
             </div>
             <div className="inputgroup">
               <label>Long Description</label>
-              <div className="inputdiv ">
+              <div className="inputdivtext ">
                 <textarea
                   {...register("Long Description", {
                     required: true,
@@ -106,7 +106,7 @@ const SecondPage = () => {
             </div>
             <div className="inputgroup">
               <label>Extra Information</label>
-              <div className="inputdiv">
+              <div className="inputdivtext">
                 <textarea
                   {...register("Extra Information", { min: 0, maxLength: 250 })}
                 />
