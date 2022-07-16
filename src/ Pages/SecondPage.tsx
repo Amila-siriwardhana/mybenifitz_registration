@@ -158,6 +158,10 @@ const SecondPage = () => {
             </div>
           </form>
         </div>
+        <span>Next</span>
+        <button className="submit_button_plus px-4 py-3" type="submit">
+          +
+        </button>
       </div>
       <div className="col-6 p-0">
         <BenefitCard />
