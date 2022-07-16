@@ -5,14 +5,28 @@
   font-size: 14px
 }
 
+html {
+  height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  background: rgb(19, 103, 95);
+  background: linear-gradient(355deg, rgba(19, 103, 95, 1) 15%, rgba(38, 204, 188, 1) 100%);
+}
+
 .row {
   margin: 0;
   padding: 0;
 }
 
-.row > * {
+.row>* {
   margin: 0;
   padding: 0;
+}
+
+.app-conatiner {
+  padding: 0 8rem;
 }
 
 @import "./Partials/variables";
