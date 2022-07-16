@@ -17,7 +17,7 @@ export const Header = () => {
               1
             </NavLink>
             <span className="">
-              Building loyalty club
+              Building Loyalty Club
             </span>
             <span></span>
           </div>
@@ -27,7 +27,7 @@ export const Header = () => {
               2
             </NavLink>
             <span>
-              Adding Business to club
+              Adding Business to Club
             </span>
           </div>
           <hr className="horizontal_line" />
