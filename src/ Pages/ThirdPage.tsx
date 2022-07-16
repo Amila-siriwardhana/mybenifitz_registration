@@ -174,7 +174,7 @@ const ThirdPage = () => {
             <h3>Brand Information</h3>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="inputgroup ">
+            <div className="inputgroup">
               <label>Brand Name</label>
               <div className="inputdiv ">
                 <input
@@ -184,11 +184,13 @@ const ThirdPage = () => {
                 />
               </div>
             </div>
-
-            <div className="inputgroup ">
+            <div className="inputgroup">
               <label>Long Description</label>
-              <div className="inputdiv ">
-                <textarea {...register("Description", {})} />
+              <div className="inputdiv p-3">
+                <textarea
+                  placeholder="Long Description"
+                  {...register("Description", {})}
+                />
               </div>
             </div>
 
