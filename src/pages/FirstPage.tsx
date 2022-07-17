@@ -6,6 +6,7 @@ import logo from "../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
 import { ClubTypes } from "../constants/enums";
 import IClub from "../constants/interfaces/IClub";
+import InputValidationMessage from "../components/InputValidationMessage";
 
 const FirstPage = () => {
   const navigate = useNavigate();
@@ -97,6 +98,7 @@ const FirstPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"name"} />
               </div>
               <div className="inputgroup col-6 right">
                 <label>Email</label>
@@ -108,15 +110,17 @@ const FirstPage = () => {
                       required: "Please enter the email address",
                       maxLength: {
                         value: 320,
-                        message: "Email address is too long. Max length is 320 characters",
+                        message:
+                          "Email address is too long. Max length is 320 characters",
                       },
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                        message: "Please enter a valid mail address",
+                        message: "Please enter a valid email address",
                       },
                     })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"email"} />
               </div>
             </div>
             <div className="row">
@@ -137,6 +141,7 @@ const FirstPage = () => {
                     )}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"phoneNum"} />
               </div>
               <div className="inputgroup col-6 right">
                 <label>Website</label>
@@ -144,9 +149,15 @@ const FirstPage = () => {
                   <input
                     type="text"
                     placeholder="Website"
-                    {...register("website", {})}
+                    {...register("website", {
+                      pattern: {
+                        value: /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi,
+                        message: "Please enter a valid website URL",
+                      }
+                    })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"website"} />
               </div>
             </div>
             <div className="row">
@@ -166,6 +177,7 @@ const FirstPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"description"} />
               </div>
             </div>
             <div className="row">
@@ -178,6 +190,7 @@ const FirstPage = () => {
                     {...register("extraInfo", {})}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"extraInfo"} />
               </div>
             </div>
             <div className="row">

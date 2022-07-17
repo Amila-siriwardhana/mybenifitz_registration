@@ -70,6 +70,10 @@ input[type="checkbox"] {
   color: $color-secondary;
 }
 
+.text-err {
+  color: $text-error-color;
+}
+
 a {
   color: white;
   padding: 0 0.5rem;
