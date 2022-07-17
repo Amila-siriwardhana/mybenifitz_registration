@@ -58,14 +58,14 @@ const FirstPage = () => {
 
   return (
     <div className="row">
-      <div className="col-6 p-0 d-flex justify-content-center align-items-center">
+      <div className="col-xs-12 col-md-6 p-0 d-flex justify-content-center align-items-center">
         <img className="logo" src={logo} alt="Logo"></img>
       </div>
-      <div className="formdiv col-6">
+      <div className="formdiv col-xs-12 col-md-6">
         <div className="textsec mx-5">
           <h3>Register Yourself!</h3>
         </div>
-        <div className="card p-5 me-5">
+        <div className="card p-4 p-md-5 me-md-5">
           <div className="mb-2">
             <button
               className={`submit_button px-5 py-2 ${
@@ -88,7 +88,7 @@ const FirstPage = () => {
           <InputValidationMessage errors={errors} type={"clubType"} />
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="row">
-              <div className="inputgroup col-6 left">
+              <div className="inputgroup col-xs-12 col-md-6 left">
                 <label>Club Name</label>
                 <div className="inputdiv ">
                   <input
@@ -102,7 +102,7 @@ const FirstPage = () => {
                 </div>
                 <InputValidationMessage errors={errors} type={"name"} />
               </div>
-              <div className="inputgroup col-6 right">
+              <div className="inputgroup col-xs-12 col-md-6 right">
                 <label>Email</label>
                 <div className="inputdiv ">
                   <input
@@ -126,7 +126,7 @@ const FirstPage = () => {
               </div>
             </div>
             <div className="row">
-              <div className="inputgroup col-6 left">
+              <div className="inputgroup col-xs-12 col-md-6 left">
                 <label>Phone Number</label>
                 <div className="inputdiv ">
                   <Controller
@@ -145,7 +145,7 @@ const FirstPage = () => {
                 </div>
                 <InputValidationMessage errors={errors} type={"phoneNum"} />
               </div>
-              <div className="inputgroup col-6 right">
+              <div className="inputgroup col-xs-12 col-md-6 right">
                 <label>Website</label>
                 <div className="inputdiv ">
                   <input
