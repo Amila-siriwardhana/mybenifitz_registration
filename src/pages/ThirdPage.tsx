@@ -50,13 +50,13 @@ const ThirdPage = () => {
   return (
     <div className="card m-5">
       <div className="row">
-        <div className="col-6 p-5">
+        <div className="col-md-6 col-xs-12 p-5">
           <div className="textsec">
             <h3>Create Business Account</h3>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="row">
-              <div className="inputgroup col-6 left">
+              <div className="inputgroup col-md-6 col-xs-12 left">
                 <label>Email</label>
                 <div className="inputdiv ">
                   <input
@@ -78,7 +78,7 @@ const ThirdPage = () => {
                 </div>
                 <InputValidationMessage errors={errors} type={"email"} />
               </div>
-              <div className="inputgroup col-6 right">
+              <div className="inputgroup col-md-6 col-xs-12 right">
                 <label>Password</label>
                 <div className="inputdiv ">
                   <input
@@ -109,7 +109,7 @@ const ThirdPage = () => {
             </div>
             <div className="row">
               {/* <div className="inputgroup col-6 left"> */}
-              <div className="inputgroup col-12">
+              <div className="inputgroup col-md-12 col-xs-12">
                 <label>Account Name</label>
                 <div className="inputdiv">
                   <input
@@ -134,7 +134,7 @@ const ThirdPage = () => {
                   />
                 </div>
               </div> */}
-              <div className="inputgroup col-6 left">
+              <div className="inputgroup col-md-6 col-xs-12 left">
                 <label>Business Name</label>
                 <div className="inputdiv ">
                   <input
@@ -151,7 +151,7 @@ const ThirdPage = () => {
                 </div>
                 <InputValidationMessage errors={errors} type={"businessName"} />
               </div>
-              <div className="inputgroup col-6 right">
+              <div className="inputgroup col-md-6 col-xs-12 right">
                 <label>Business Address</label>
                 <div className="inputdiv ">
                   <input
@@ -173,7 +173,7 @@ const ThirdPage = () => {
               </div>
             </div>
             <div className="row">
-              <div className="inputgroup col-6 left">
+              <div className="inputgroup col-md-6 col-xs-12 left">
                 <label>Phone Number</label>
                 <div className="inputdiv ">
                   <Controller
@@ -192,7 +192,7 @@ const ThirdPage = () => {
                 </div>
                 <InputValidationMessage errors={errors} type={"phoneNumber"} />
               </div>
-              <div className="inputgroup col-6 right">
+              <div className="inputgroup col-md-6 col-xs-12 right">
                 <label>Contact Name</label>
                 <div className="inputdiv ">
                   <input
@@ -204,7 +204,7 @@ const ThirdPage = () => {
               </div>
             </div>
             <div className="row">
-              <div className="inputgroup col-6 left">
+              <div className="inputgroup col-md-6 col-xs-12 left">
                 <label>Opening Hours</label>
                 <div className="inputdiv ">
                   <input
@@ -221,7 +221,7 @@ const ThirdPage = () => {
                 </div>
                 <InputValidationMessage errors={errors} type={"openingHours"} />
               </div>
-              <div className="inputgroup col-6 right">
+              <div className="inputgroup col-md-6 col-xs-12 right">
                 <label>Special Opening Hours</label>
                 <div className="inputdiv ">
                   <input
@@ -243,7 +243,7 @@ const ThirdPage = () => {
               </div>
             </div>
 
-            <div className="inputgroup ">
+            <div className="inputgroup col-md-12 col-xs-12">
               <label>Description</label>
               <div className="inputdiv ">
                 <input
@@ -256,7 +256,7 @@ const ThirdPage = () => {
             </div>
           </form>
         </div>
-        <div className="col-6 p-5">
+        <div className="col-md-6 col-xs-12 p-5">
           <div className="textsec">
             <h3>Brand Information</h3>
           </div>
@@ -290,17 +290,17 @@ const ThirdPage = () => {
               />
             </div>
             <div className="row">
-              <div className="col-6">
-                <div className="inputgroup col-6 left">
+              <div className="col-xs-12 col-md-6 m-5 m-md-0">
+                <div className="inputgroup col-6  left">
                   <label>Brand Logo</label>
                   <div className="inputdiv image-uplaod-div">
                     <ImageUpload setImageFile={setBrandLogo}></ImageUpload>
                   </div>
                 </div>
               </div>
-              <div className="col-6 position-relative">
+              <div className="col-xs-12 col-md-6  m-md-5 position-relative">
                 <button
-                  className="submit_button p-3 px-5 position-absolute end-0 bottom-0"
+                  className="submit_button p-3 px-5 my-2 mx-5 position-md-absolute  end-0 bottom-0"
                   type="submit"
                 >
                   Register

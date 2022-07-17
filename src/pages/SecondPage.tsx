@@ -78,12 +78,12 @@ const SecondPage = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
-        <div className="col-6 p-0">
-          <div className="card p-4 ms-5">
+        <div className="col-md-6 m-0 p-0">
+          <div className="card p-md-4 px-4">
             <div className="row mb-1">
-              <div className="col-4 left">
+              <div className="col-xs-12 col-md-4 mb-4 md-left center">
                 <button
-                  className={`submit_button w-100 py-2 ${
+                  className={`submit_button  w-100 py-2 mt-4 mt-md-0 ${
                     offerType === ClubOfferTypes.Prepaid ? "active " : ""
                   }`}
                   type="submit"
@@ -93,9 +93,9 @@ const SecondPage = () => {
                   <Tooltip text={"tooltip"} />
                 </button>
               </div>
-              <div className="col-4 middle">
+              <div className="col-xs-12 col-md-4 mb-4 middle">
                 <button
-                  className={`submit_button w-100 py-2 ${
+                  className={`submit_button w-100 py-2 p-xs-5 ${
                     offerType === ClubOfferTypes.PunchCard ? "active " : ""
                   }`}
                   type="submit"
@@ -105,7 +105,7 @@ const SecondPage = () => {
                   <Tooltip text={"tooltip"} />
                 </button>
               </div>
-              <div className="col-4 right">
+              <div className="col-xs-12 col-md-4 right ">
                 <button
                   className={`submit_button w-100 py-2 ${
                     offerType === ClubOfferTypes.Free ? "active " : ""
@@ -121,7 +121,7 @@ const SecondPage = () => {
             <InputValidationMessage errors={errors} type={"offerType"} />
 
             <div className="row">
-              <div className="inputgroup col-6 left">
+              <div className="inputgroup col-xs-12 col-md-6 left">
                 <label>
                   Price
                   <Tooltip text={"tooltip"} />
@@ -139,7 +139,7 @@ const SecondPage = () => {
                 </div>
                 <InputValidationMessage errors={errors} type={"price"} />
               </div>
-              <div className="inputgroup col-6 right">
+              <div className="inputgroup col-xs-12 col-md-6 right">
                 <label>
                   Points
                   <Tooltip text={"tooltip"} />
@@ -159,7 +159,7 @@ const SecondPage = () => {
               </div>
             </div>
             <div className="row">
-              <div className="inputgroup col-6 left">
+              <div className="inputgroup col-xs-12 col-md-6 left">
                 <label>Possible Purchase</label>
                 <div className="inputdiv ">
                   <select
@@ -184,7 +184,7 @@ const SecondPage = () => {
                   type={"possiblePurchases"}
                 />
               </div>
-              <div className="inputgroup col-6 right">
+              <div className="inputgroup col-xs-12 col-md-6 right">
                 <label>
                   Discount Amount
                   <Tooltip text={"tooltip"} />
@@ -276,21 +276,21 @@ const SecondPage = () => {
               </div>
             </div>
             <div className="row">
-              <div className="inputgroup col-4 left">
+              <div className="inputgroup col-xs-6 col-md-6 my-4 left">
                 <label>Logo (Small)</label>
-                <div className="inputdiv image-uplaod-div">
+                <div className="inputdiv image-uplaod-div mt-2 ">
                   <ImageUpload setImageFile={setSmallLogo}></ImageUpload>
                 </div>
               </div>
-              <div className="inputgroup col-4 middle">
+              <div className="inputgroup col-xs-6 col-md-6 my-4  middle">
                 <label>Logo (Big)</label>
-                <div className="inputdiv image-uplaod-div">
+                <div className="inputdiv image-uplaod-div p-0 mt-2">
                   <ImageUpload setImageFile={setBigLogo}></ImageUpload>
                 </div>
               </div>
-              <div className="col-4 right position-relative">
-                <div className="add-benefits-div">
-                  <span className="textsec">Add Benefits</span>
+              <div className="col-md-4 col-xs-8 mt-5 right position-relative">
+                <div className="add-benefits-div  position-relative ">
+                  <span className="textsec ">Add Benefits</span>
                   <button className="submit_button_plus" type="submit">
                     <Plus />
                   </button>
@@ -299,16 +299,16 @@ const SecondPage = () => {
             </div>
           </div>
         </div>
-        <div className="col-6 p-0 position-relative">
+        <div className="col-md-6 col-xs-12 p-md-0 pb-5 px-0 mx-0  position-relative">
           <BenefitCard />
           <BenefitCard />
           <BenefitCard />
           <BenefitCard />
           <BenefitCard />
-          <div className=" d-inline-flex justify-content-center align-items-center position-absolute bottom-0 mb-5 ms-5">
-            <span className="textsec benefit-card">Next</span>
+          <div className=" d-inline-flex justify-content-center align-items-center position-absolute bottom-0 mb-md-5 ms-md-5 mt-5 mx-5 ">
+            <span className="textsec benefit-card ">Next</span>
             <button
-              className="submit_button_plus"
+              className="submit_button_plus "
               onClick={() => navigate("/define_brand")}
             >
               <ArrowRight />
