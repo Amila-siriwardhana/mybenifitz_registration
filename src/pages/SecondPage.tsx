@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Plus } from "react-feather";
+import { ArrowRight, HelpCircle, Plus } from "react-feather";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import BenefitCard from "../components/BenefitCard";
 import ImageUpload from "../components/ImageUpload";
 import InputValidationMessage from "../components/InputValidationMessage";
+import Tooltip from "../components/Tooltip";
 import { ClubOfferPurchaseTypes, ClubOfferTypes } from "../constants/enums";
 import IClubOffer from "../constants/interfaces/IClubOffer";
 
@@ -89,6 +90,7 @@ const SecondPage = () => {
                   onClick={() => setOfferType(ClubOfferTypes.Prepaid)}
                 >
                   Prepaid
+                  <Tooltip text={"tooltip"} />
                 </button>
               </div>
               <div className="col-4 middle">
@@ -100,6 +102,7 @@ const SecondPage = () => {
                   onClick={() => setOfferType(ClubOfferTypes.PunchCard)}
                 >
                   Punchcard
+                  <Tooltip text={"tooltip"} />
                 </button>
               </div>
               <div className="col-4 right">
@@ -111,6 +114,7 @@ const SecondPage = () => {
                   onClick={() => setOfferType(ClubOfferTypes.Free)}
                 >
                   Free
+                  <Tooltip text={"tooltip"} />
                 </button>
               </div>
             </div>
@@ -133,7 +137,10 @@ const SecondPage = () => {
                 <InputValidationMessage errors={errors} type={"price"} />
               </div>
               <div className="inputgroup col-6 right">
-                <label>Points</label>
+                <label>
+                  Points
+                  <Tooltip text={"tooltip"} />
+                </label>
                 <div className="inputdiv ">
                   <input
                     type="number"
@@ -175,7 +182,10 @@ const SecondPage = () => {
                 />
               </div>
               <div className="inputgroup col-6 right">
-                <label>Discount Amount</label>
+                <label>
+                  Discount Amount
+                  <Tooltip text={"tooltip"} />
+                </label>
                 <div className="inputdiv ">
                   <input
                     type="number"
@@ -195,7 +205,10 @@ const SecondPage = () => {
             </div>
             <div className="row">
               <div className="inputgroup ">
-                <label>Description</label>
+                <label>
+                  Description
+                  <Tooltip text={"tooltip"} />
+                </label>
                 <div className="inputdivtext ">
                   <textarea
                     placeholder="Description"
@@ -216,7 +229,10 @@ const SecondPage = () => {
             </div>
             <div className="row">
               <div className="inputgroup mt-0">
-                <label>Long Description</label>
+                <label>
+                  Long Description
+                  <Tooltip text={"tooltip"} />
+                </label>
                 <div className="inputdivtext ">
                   <textarea
                     placeholder="Long Description"

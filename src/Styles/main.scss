@@ -12,9 +12,11 @@ html {
 body {
   min-height: 100vh;
   background: rgb(19, 103, 95);
-  background: linear-gradient(355deg,
-      rgba(19, 103, 95, 1) 15%,
-      rgba(38, 204, 188, 1) 100%);
+  background: linear-gradient(
+    355deg,
+    rgba(19, 103, 95, 1) 15%,
+    rgba(38, 204, 188, 1) 100%
+  );
 }
 
 .row {
@@ -22,12 +24,12 @@ body {
   padding: 0;
 }
 
-.row>* {
+.row > * {
   margin: 0;
   padding: 0;
 }
 
-@import 'react-phone-number-input/style.css';
+@import "react-phone-number-input/style.css";
 
 @import "./partials/hide-number-input-arrows"; // hide the arrows on the number input
 @import "./partials/variables";
@@ -38,3 +40,4 @@ body {
 @import "./partials/benefit-card";
 @import "./partials/thirdpage";
 @import "./partials//header";
+@import "./Partials//tooltip";
