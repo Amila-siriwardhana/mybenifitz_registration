@@ -1,6 +1,6 @@
 import FirstPage from "./pages/FirstPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Header } from "./Components/Header";
+import { Header } from "./components/Header";
 import SecondPage from "./pages/SecondPage";
 import ThirdPage from "./pages/ThirdPage";
 
