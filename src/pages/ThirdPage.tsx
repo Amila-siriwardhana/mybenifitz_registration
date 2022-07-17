@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
 import ImageUpload from "../components/ImageUpload";
+import { IBrand } from "../constants/interfaces/IBrand";
+import { IBussiness } from "../constants/interfaces/IBussiness";
 
 const ThirdPage = () => {
-  const [image, setImage] = useState<any | null>(null);
+  const [brandLogo, setBrandLogo] = useState<any | null>(null);
 
   const {
     register,
@@ -12,7 +14,35 @@ const ThirdPage = () => {
     control,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+
+  const onSubmit = (data: any) => {
+    if (data) {
+      const brandDataObj: IBrand = {
+        name: data.brandName,
+        description: data.brandDescription,
+        logo: brandLogo,
+      };
+
+      const businessDataObj: IBussiness = {
+        email: data.email,
+        password: data.password,
+        name: data.accountName,
+        brandId: "",
+        information: {
+          name: data.businessName,
+          address: data.businessAddress,
+          phone: data.phone,
+          openingHours1: data.openingHours,
+          openingHours2: data.specialOpeningHours,
+          contactName: data.contactName,
+          description: data.description,
+        },
+      };
+      console.log("BRAND: ", brandDataObj);
+      console.log("BUSINESS: ", businessDataObj);
+    }
+  };
+
   console.log("ERR:", errors);
 
   return (
@@ -30,10 +60,17 @@ const ThirdPage = () => {
                   <input
                     type="email"
                     placeholder="Email"
-                    {...register("Email", {
-                      required: true,
-                      min: 0,
-                      maxLength: 80,
+                    {...register("email", {
+                      required: "Please enter the email address",
+                      maxLength: {
+                        value: 320,
+                        message:
+                          "Email address is too long. Max length is 320 characters",
+                      },
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                        message: "Please enter a valid mail address",
+                      },
                     })}
                   />
                 </div>
@@ -44,52 +81,68 @@ const ThirdPage = () => {
                   <input
                     type="password"
                     placeholder="Password"
-                    {...register("Password", {
-                      required: true,
-                      min: 0,
-                      maxLength: 100,
+                    {...register("password", {
+                      required: "Please enter the password",
+                      maxLength: {
+                        value: 20,
+                        message:
+                          "Password is too long. Maximum length is 20 characters",
+                      },
+                      minLength: {
+                        value: 8,
+                        message:
+                          "Password is too short. Minimum length is 8 characters",
+                      },
+                      pattern: {
+                        value:
+                          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                        message:
+                          "Password must contain at least one uppercase, one lowercase, one number and one special character",
+                      },
                     })}
                   />
                 </div>
               </div>
             </div>
             <div className="row">
-              <div className="inputgroup col-6 left">
+              {/* <div className="inputgroup col-6 left"> */}
+              <div className="inputgroup col-12">
                 <label>Account Name</label>
                 <div className="inputdiv">
                   <input
                     type="text"
                     placeholder="Account Name"
-                    {...register("Account Name", {
-                      required: true,
-                      maxLength: 12,
-                    })}
-                  />
-                </div>
-              </div>
-              <div className="inputgroup col-6 right">
-                <label>Business Name</label>
-                <div className="inputdiv ">
-                  <input
-                    type="text"
-                    placeholder="Business Name"
-                    {...register("Business Name", {
-                      max: 20,
-                      min: 0,
-                      maxLength: 17,
+                    {...register("accountName", {
+                      required: "Please enter the account name",
                     })}
                   />
                 </div>
               </div>
             </div>
             <div className="row">
-              <div className="inputgroup col-6 left">
+              {/* <div className="inputgroup col-6 left">
                 <label>Brand ID</label>
                 <div className="inputdiv ">
                   <input
                     type="text"
                     placeholder="Brand ID"
-                    {...register("Brand ID", { min: 0, maxLength: 140 })}
+                    {...register("brandId", {})}
+                  />
+                </div>
+              </div> */}
+              <div className="inputgroup col-6 left">
+                <label>Business Name</label>
+                <div className="inputdiv ">
+                  <input
+                    type="text"
+                    placeholder="Business Name"
+                    {...register("businessName", {
+                      maxLength: {
+                        value: 20,
+                        message:
+                          "Business name should be less than 20 characters",
+                      },
+                    })}
                   />
                 </div>
               </div>
@@ -99,11 +152,12 @@ const ThirdPage = () => {
                   <input
                     type="text"
                     placeholder="Business Address"
-                    {...register("Business Address", {
-                      required: true,
-                      max: 35,
-                      min: 0,
-                      maxLength: 35,
+                    {...register("businessAddress", {
+                      maxLength: {
+                        value: 35,
+                        message:
+                          "Business address should be less than 35 characters",
+                      },
                     })}
                   />
                 </div>
@@ -114,10 +168,10 @@ const ThirdPage = () => {
                 <label>Phone Number</label>
                 <div className="inputdiv ">
                   <Controller
-                    name="Phone Number"
+                    name="phoneNumber"
                     control={control}
-                    defaultValue={''}
-                    rules={{ required: true }}
+                    defaultValue={""}
+                    rules={{}}
                     render={({ field }) => (
                       <PhoneInputWithCountrySelect
                         className="ps-2"
@@ -134,7 +188,7 @@ const ThirdPage = () => {
                   <input
                     type="text"
                     placeholder="Contact Name"
-                    {...register("Contact Name", {})}
+                    {...register("contactName", {})}
                   />
                 </div>
               </div>
@@ -146,10 +200,12 @@ const ThirdPage = () => {
                   <input
                     type="text"
                     placeholder="Opening Hours"
-                    {...register("Opening Hours", {
-                      max: 25,
-                      min: 0,
-                      maxLength: 25,
+                    {...register("openingHours", {
+                      maxLength: {
+                        value: 25,
+                        message:
+                          "Opening hours should be entered with less than 25 characters",
+                      },
                     })}
                   />
                 </div>
@@ -160,10 +216,12 @@ const ThirdPage = () => {
                   <input
                     type="text"
                     placeholder="Special Opening Hours"
-                    {...register("Special Opening Hours", {
-                      max: 25,
-                      min: 0,
-                      maxLength: 25,
+                    {...register("specialOpeningHours", {
+                      maxLength: {
+                        value: 25,
+                        message:
+                          "Special Opening hours should be entered with less than 25 characters",
+                      },
                     })}
                   />
                 </div>
@@ -176,7 +234,7 @@ const ThirdPage = () => {
                 <input
                   type="text"
                   placeholder="Description"
-                  {...register("Description", {})}
+                  {...register("description", {})}
                 />
               </div>
             </div>
@@ -194,18 +252,18 @@ const ThirdPage = () => {
                   <input
                     type="text"
                     placeholder="Brand Name"
-                    {...register("Brand Name", { required: true, min: 0 })}
+                    {...register("brandName", {})}
                   />
                 </div>
               </div>
             </div>
             <div className="row h-auto">
               <div className="inputgroup">
-                <label>Long Description</label>
+                <label>Description</label>
                 <div className="inputdivtext ">
                   <textarea
-                    placeholder="Long Description"
-                    {...register("Description", {})}
+                    placeholder="Description"
+                    {...register("brandDescription", {})}
                   />
                 </div>
               </div>
@@ -213,14 +271,17 @@ const ThirdPage = () => {
             <div className="row">
               <div className="col-6">
                 <div className="inputgroup col-6 left">
-                  <label>Logo (Small)</label>
+                  <label>Brand Logo</label>
                   <div className="inputdiv image-uplaod-div">
-                    <ImageUpload setImageFile={setImage}></ImageUpload>
+                    <ImageUpload setImageFile={setBrandLogo}></ImageUpload>
                   </div>
                 </div>
               </div>
               <div className="col-6 position-relative">
-                <button className="submit_button p-3 px-5 position-absolute end-0 bottom-0">
+                <button
+                  className="submit_button p-3 px-5 position-absolute end-0 bottom-0"
+                  type="submit"
+                >
                   Register
                 </button>
               </div>

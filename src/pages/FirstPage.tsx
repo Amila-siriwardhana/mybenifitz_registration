@@ -32,7 +32,7 @@ const FirstPage = () => {
     } else {
       clearErrors("clubType");
     }
-  }, [setError, clubType]);
+  }, [setError, clubType, clearErrors]);
 
   const onSubmit = (data: any) => {
     if (data && clubType) {
@@ -57,7 +57,7 @@ const FirstPage = () => {
   return (
     <div className="row">
       <div className="col-6 p-0 d-flex justify-content-center align-items-center">
-        <img className="logo" src={logo}></img>
+        <img className="logo" src={logo} alt="Logo"></img>
       </div>
       <div className="formdiv col-6">
         <div className="textsec mx-5">
@@ -106,7 +106,10 @@ const FirstPage = () => {
                     placeholder="Email"
                     {...register("email", {
                       required: "Please enter the email address",
-                      maxLength: 100,
+                      maxLength: {
+                        value: 320,
+                        message: "Email address is too long. Max length is 320 characters",
+                      },
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                         message: "Please enter a valid mail address",
@@ -203,11 +206,11 @@ const FirstPage = () => {
                 />
                 <div>
                   <span> I agree to</span>
-                  <a href="" className="terms">
+                  <a href="terms_of_service_link" className="terms">
                     Terms of Service
                   </a>
                   <span>&amp;</span>
-                  <a href="" className="terms">
+                  <a href="privacy_policy_link" className="terms">
                     Privacy Policy
                   </a>
                 </div>

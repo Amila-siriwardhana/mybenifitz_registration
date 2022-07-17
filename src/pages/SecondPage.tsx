@@ -31,7 +31,7 @@ const SecondPage = () => {
     } else {
       clearErrors("offerType");
     }
-  }, [setError, offerType]);
+  }, [setError, offerType, clearErrors]);
 
   const onSubmit = (data: any) => {
     if (data && offerType) {
