@@ -39,6 +39,10 @@ input[type="checkbox"] {
   min-width: 150px;
   max-height: 150px;
   max-width: 150px;
+  background-color: white;
+  border: 1px solid #1a4848;
+  border-radius: $text-area-border-radius;
+  padding: 5px;
 }
 
 .left {

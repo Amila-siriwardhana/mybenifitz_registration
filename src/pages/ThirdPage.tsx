@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
 import ImageUpload from "../components/ImageUpload";
@@ -9,13 +9,27 @@ import { EMAIL_REGEX, PASSWORD_REGEX } from "../constants/regex";
 
 const ThirdPage = () => {
   const [brandLogo, setBrandLogo] = useState<any | null>(null);
+  const [brandLogoErr, setBrandLogoErr] = useState<string | null>(null);
 
   const {
     register,
+    setError,
+    clearErrors,
     handleSubmit,
     control,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+  if (brandLogoErr) {
+      setError("brandLogo", {
+        type: "required",
+        message: brandLogoErr,
+      });
+    } else {
+      clearErrors("brandLogo");
+    }
+  }, [brandLogoErr, clearErrors, setError]);
 
   const onSubmit = (data: any) => {
     if (data) {
@@ -294,8 +308,9 @@ const ThirdPage = () => {
                 <div className="inputgroup col-6  left">
                   <label>Brand Logo</label>
                   <div className="inputdiv image-uplaod-div">
-                    <ImageUpload setImageFile={setBrandLogo}></ImageUpload>
+                    <ImageUpload setImageFile={setBrandLogo} setError={setBrandLogoErr} isSquare={true} ratio={[1,3]}></ImageUpload>
                   </div>
+                  <InputValidationMessage errors={errors} type={"brandLogo"} />
                 </div>
               </div>
               <div className="col-xs-12 col-md-6  m-md-5 position-relative">

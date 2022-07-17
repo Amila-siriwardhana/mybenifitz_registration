@@ -15,6 +15,8 @@ const SecondPage = () => {
   const [offerType, setOfferType] = useState<ClubOfferTypes | null>(null);
   const [smallLogo, setSmallLogo] = useState<any | null>(null);
   const [bigLogo, setBigLogo] = useState<any | null>(null);
+  const [smallLogoeErr, setSmallLogoErr] = useState<string | null>(null);
+  const [bigLogoErr, setBigLogoErr] = useState<string | null>(null);
   const [descriptionLen, setDescriptionLen] = useState<number>(0);
   const [longDescriptionLen, setlongDescriptionLen] = useState<number>(0);
   const [extarInfoLen, setExtarInfoLen] = useState<number>(0);
@@ -52,7 +54,25 @@ const SecondPage = () => {
     } else {
       clearErrors("offerType");
     }
-  }, [setError, offerType, clearErrors]);
+
+    if (smallLogoeErr) {
+      setError("smallLogo", {
+        type: "required",
+        message: smallLogoeErr,
+      });
+    } else {
+      clearErrors("smallLogo");
+    }
+
+    if (bigLogoErr) {
+      setError("bigLogo", {
+        type: "required",
+        message: bigLogoErr,
+      });
+    } else {
+      clearErrors("bigLogo");
+    }
+  }, [setError, offerType, clearErrors, smallLogoeErr, bigLogoErr]);
 
   const onSubmit = (data: any) => {
     if (data && offerType) {
@@ -278,15 +298,35 @@ const SecondPage = () => {
             <div className="row">
               <div className="inputgroup col-xs-6 col-md-6 my-4 left">
                 <label>Logo (Small)</label>
-                <div className="inputdiv image-uplaod-div mt-2 ">
-                  <ImageUpload setImageFile={setSmallLogo}></ImageUpload>
+                <div className="inputdiv image-uplaod-div mt-2">
+                  <ImageUpload
+                    setImageFile={setSmallLogo}
+                    setError={setSmallLogoErr}
+                    ratio={[1.8, 1]}
+                    minheight={141}
+                    minwidth={80}
+                  ></ImageUpload>
                 </div>
+                <small className="p-0 m-0 ms-4 text-white length-info">
+                  1.8:1 (min 141x80 px)
+                </small>
+                <InputValidationMessage errors={errors} type={"smallLogo"} />
               </div>
               <div className="inputgroup col-xs-6 col-md-6 my-4  middle">
                 <label>Logo (Big)</label>
                 <div className="inputdiv image-uplaod-div p-0 mt-2">
-                  <ImageUpload setImageFile={setBigLogo}></ImageUpload>
+                  <ImageUpload
+                    setImageFile={setBigLogo}
+                    setError={setBigLogoErr}
+                    minheight={200}
+                    minwidth={200}
+                    ratio={[1, 1.23]}
+                  ></ImageUpload>
                 </div>
+                <small className="p-0 m-0 ms-4 text-white length-info">
+                  1:2.3 (min 200x250 px)
+                </small>
+                <InputValidationMessage errors={errors} type={"bigLogo"} />
               </div>
               <div className="col-md-4 col-xs-8 mt-5 right position-relative">
                 <div className="add-benefits-div  position-relative ">
