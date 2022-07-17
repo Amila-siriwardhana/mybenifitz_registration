@@ -2,8 +2,8 @@ const InputValidationMessage = (props: { errors: any, type: string }) => {
   const { errors, type } = props;
   return (
     <>
-      {errors[type] && (
-        <small className="text-err ms-3">{`${errors[type].message}`}</small>
+      {errors[type] && errors[type].message && (
+        <small className="text-err ms-3 m-0 p-0">{`${errors[type].message}`}</small>
       )}
     </>
   );

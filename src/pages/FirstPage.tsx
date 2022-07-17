@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
-import ImageUpload from "../components/ImageUpload";
-import logo from "../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/images/logo.png";
+import ImageUpload from "../components/ImageUpload";
+import InputValidationMessage from "../components/InputValidationMessage";
 import { ClubTypes } from "../constants/enums";
 import IClub from "../constants/interfaces/IClub";
-import InputValidationMessage from "../components/InputValidationMessage";
 import { EMAIL_REGEX, URL_REGEX } from "../constants/regex";
 
 const FirstPage = () => {

@@ -59,8 +59,8 @@ const SecondPage = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
         <div className="col-6 p-0">
-          <div className="card p-5 ms-5">
-            <div className="row mb-2">
+          <div className="card p-4 ms-5">
+            <div className="row mb-1">
               <div className="col-4 left">
                 <button
                   className={`submit_button w-100 py-2 ${
