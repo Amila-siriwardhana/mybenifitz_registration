@@ -209,7 +209,9 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
-                <small className="p-0 m-0 me-3 float-end text-white length-info">{descriptionLen}/20</small>
+                <small className="p-0 m-0 me-3 float-end text-white length-info">
+                  {descriptionLen}/20
+                </small>
               </div>
             </div>
             <div className="row">
@@ -228,7 +230,9 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
-                <small className="p-0 m-0 me-3 float-end text-white length-info">{longDescriptionLen}/200</small>
+                <small className="p-0 m-0 me-3 float-end text-white length-info">
+                  {longDescriptionLen}/200
+                </small>
               </div>
             </div>
             <div className="row">
@@ -247,7 +251,9 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
-                <small className="p-0 m-0 me-3 float-end text-white length-info">{extarInfoLen}/250</small>
+                <small className="p-0 m-0 me-3 float-end text-white length-info">
+                  {extarInfoLen}/250
+                </small>
               </div>
             </div>
             <div className="row">
