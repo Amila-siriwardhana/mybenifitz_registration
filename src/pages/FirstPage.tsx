@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { ClubTypes } from "../constants/enums";
 import IClub from "../constants/interfaces/IClub";
 import InputValidationMessage from "../components/InputValidationMessage";
+import { EMAIL_REGEX, URL_REGEX } from "../constants/regex";
 
 const FirstPage = () => {
   const navigate = useNavigate();
@@ -115,7 +116,7 @@ const FirstPage = () => {
                           "Email address is too long. Max length is 320 characters",
                       },
                       pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                        value: EMAIL_REGEX,
                         message: "Please enter a valid email address",
                       },
                     })}
@@ -152,8 +153,7 @@ const FirstPage = () => {
                     placeholder="Website"
                     {...register("website", {
                       pattern: {
-                        value:
-                          /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)?/gi,
+                        value: URL_REGEX,
                         message: "Please enter a valid website URL",
                       },
                     })}
@@ -216,7 +216,7 @@ const FirstPage = () => {
                   placeholder=""
                   {...register("isAgreed", {
                     required:
-                      "Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy",
+                      "Please indicate that you have read and agree to the Terms of Service and Privacy Policy",
                   })}
                 />
                 <div>

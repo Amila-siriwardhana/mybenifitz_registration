@@ -5,6 +5,7 @@ import ImageUpload from "../components/ImageUpload";
 import InputValidationMessage from "../components/InputValidationMessage";
 import { IBrand } from "../constants/interfaces/IBrand";
 import { IBussiness } from "../constants/interfaces/IBussiness";
+import { EMAIL_REGEX, PASSWORD_REGEX } from "../constants/regex";
 
 const ThirdPage = () => {
   const [brandLogo, setBrandLogo] = useState<any | null>(null);
@@ -69,7 +70,7 @@ const ThirdPage = () => {
                           "Email address is too long. Max length is 320 characters",
                       },
                       pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                        value: EMAIL_REGEX,
                         message: "Please enter a valid mail address",
                       },
                     })}
@@ -96,8 +97,7 @@ const ThirdPage = () => {
                           "Password is too short. Minimum length is 8 characters",
                       },
                       pattern: {
-                        value:
-                          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                        value: PASSWORD_REGEX,
                         message:
                           "Password must contain at least one uppercase, one lowercase, one number and one special character",
                       },
