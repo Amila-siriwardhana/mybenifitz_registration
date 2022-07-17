@@ -122,7 +122,10 @@ const SecondPage = () => {
 
             <div className="row">
               <div className="inputgroup col-6 left">
-                <label>Price</label>
+                <label>
+                  Price
+                  <Tooltip text={"tooltip"} />
+                </label>
                 <div className="inputdiv ">
                   <input
                     type="number"
