@@ -189,8 +189,10 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
+                <div className="text-white d-flex justify-content-end ">
+                  0/30
+                </div>
                 <InputValidationMessage errors={errors} type={"description"} />
-
               </div>
             </div>
             <div className="row">
@@ -208,8 +210,10 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
-                <InputValidationMessage errors={errors} type={"longDescription"} />
-
+                <InputValidationMessage
+                  errors={errors}
+                  type={"longDescription"}
+                />
               </div>
             </div>
             <div className="row">
@@ -228,7 +232,6 @@ const SecondPage = () => {
                   />
                 </div>
                 <InputValidationMessage errors={errors} type={"extraInfo"} />
-
               </div>
             </div>
             <div className="row">
