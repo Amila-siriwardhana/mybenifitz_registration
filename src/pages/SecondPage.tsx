@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import BenefitCard from "../components/BenefitCard";
 import ImageUpload from "../components/ImageUpload";
+import InputValidationMessage from "../components/InputValidationMessage";
 import { ClubOfferPurchaseTypes, ClubOfferTypes } from "../constants/enums";
 import IClubOffer from "../constants/interfaces/IClubOffer";
 
@@ -94,6 +95,8 @@ const SecondPage = () => {
                 </button>
               </div>
             </div>
+            <InputValidationMessage errors={errors} type={"offerType"} />
+
             <div className="row">
               <div className="inputgroup col-6 left">
                 <label>Price</label>
@@ -108,6 +111,7 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"price"} />
               </div>
               <div className="inputgroup col-6 right">
                 <label>Points</label>
@@ -122,6 +126,7 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"points"} />
               </div>
             </div>
             <div className="row">
@@ -145,6 +150,10 @@ const SecondPage = () => {
                     </option>
                   </select>
                 </div>
+                <InputValidationMessage
+                  errors={errors}
+                  type={"possiblePurchases"}
+                />
               </div>
               <div className="inputgroup col-6 right">
                 <label>Discount Amount</label>
@@ -159,6 +168,10 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage
+                  errors={errors}
+                  type={"discountAmount"}
+                />
               </div>
             </div>
             <div className="row">
@@ -176,6 +189,8 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"description"} />
+
               </div>
             </div>
             <div className="row">
@@ -193,6 +208,8 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"longDescription"} />
+
               </div>
             </div>
             <div className="row">
@@ -210,6 +227,8 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"extraInfo"} />
+
               </div>
             </div>
             <div className="row">

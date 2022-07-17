@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
 import ImageUpload from "../components/ImageUpload";
+import InputValidationMessage from "../components/InputValidationMessage";
 import { IBrand } from "../constants/interfaces/IBrand";
 import { IBussiness } from "../constants/interfaces/IBussiness";
 
@@ -74,6 +75,7 @@ const ThirdPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"email"} />
               </div>
               <div className="inputgroup col-6 right">
                 <label>Password</label>
@@ -102,6 +104,7 @@ const ThirdPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"password"} />
               </div>
             </div>
             <div className="row">
@@ -117,6 +120,7 @@ const ThirdPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"accountName"} />
               </div>
             </div>
             <div className="row">
@@ -145,6 +149,7 @@ const ThirdPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"businessName"} />
               </div>
               <div className="inputgroup col-6 right">
                 <label>Business Address</label>
@@ -161,6 +166,10 @@ const ThirdPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage
+                  errors={errors}
+                  type={"businessAddress"}
+                />
               </div>
             </div>
             <div className="row">
@@ -181,6 +190,7 @@ const ThirdPage = () => {
                     )}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"phoneNumber"} />
               </div>
               <div className="inputgroup col-6 right">
                 <label>Contact Name</label>
@@ -209,6 +219,7 @@ const ThirdPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"openingHours"} />
               </div>
               <div className="inputgroup col-6 right">
                 <label>Special Opening Hours</label>
@@ -225,6 +236,10 @@ const ThirdPage = () => {
                     })}
                   />
                 </div>
+                <InputValidationMessage
+                  errors={errors}
+                  type={"specialOpeningHours"}
+                />
               </div>
             </div>
 
@@ -237,6 +252,7 @@ const ThirdPage = () => {
                   {...register("description", {})}
                 />
               </div>
+              <InputValidationMessage errors={errors} type={"description"} />
             </div>
           </form>
         </div>
@@ -255,6 +271,7 @@ const ThirdPage = () => {
                     {...register("brandName", {})}
                   />
                 </div>
+                <InputValidationMessage errors={errors} type={"brandName"} />
               </div>
             </div>
             <div className="row h-auto">
@@ -267,6 +284,10 @@ const ThirdPage = () => {
                   />
                 </div>
               </div>
+              <InputValidationMessage
+                errors={errors}
+                type={"brandDescription"}
+              />
             </div>
             <div className="row">
               <div className="col-6">

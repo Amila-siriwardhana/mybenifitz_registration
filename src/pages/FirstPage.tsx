@@ -84,6 +84,7 @@ const FirstPage = () => {
               Private
             </button>
           </div>
+          <InputValidationMessage errors={errors} type={"clubType"} />
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="row">
               <div className="inputgroup col-6 left">
@@ -151,9 +152,10 @@ const FirstPage = () => {
                     placeholder="Website"
                     {...register("website", {
                       pattern: {
-                        value: /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi,
+                        value:
+                          /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi,
                         message: "Please enter a valid website URL",
-                      }
+                      },
                     })}
                   />
                 </div>
@@ -227,6 +229,7 @@ const FirstPage = () => {
                     Privacy Policy
                   </a>
                 </div>
+                <div></div>
               </div>
               <button
                 className="submit_button p-3 px-5 position-absolute end-0 bottom-0"
@@ -236,6 +239,7 @@ const FirstPage = () => {
                 Register
               </button>
             </div>
+            <InputValidationMessage errors={errors} type={"isAgreed"} />
           </form>
         </div>
       </div>
