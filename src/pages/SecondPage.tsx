@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Plus } from "react-feather";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import BenefitCard from "../Components/BenefitCard";
+import BenefitCard from "../components/BenefitCard";
 import ImageUpload from "../components/ImageUpload";
 import { ClubOfferPurchaseTypes, ClubOfferTypes } from "../constants/enums";
 import IClubOffer from "../constants/interfaces/IClubOffer";
