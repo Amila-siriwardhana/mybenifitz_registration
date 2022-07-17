@@ -13,3 +13,8 @@ export enum ClubOfferPurchaseTypes {
     Unlimited = 'unlimited',
     Single = 'single',
 }
+
+export enum StatusCodes {
+    SUCCESS = 200,
+    CREATED = 201,
+}

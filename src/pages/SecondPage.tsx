@@ -15,6 +15,8 @@ const SecondPage = () => {
   const [offerType, setOfferType] = useState<ClubOfferTypes | null>(null);
   const [smallLogo, setSmallLogo] = useState<any | null>(null);
   const [bigLogo, setBigLogo] = useState<any | null>(null);
+  const [smallLogoeErr, setSmallLogoErr] = useState<string | null>(null);
+  const [bigLogoErr, setBigLogoErr] = useState<string | null>(null);
   const [descriptionLen, setDescriptionLen] = useState<number>(0);
   const [longDescriptionLen, setlongDescriptionLen] = useState<number>(0);
   const [extarInfoLen, setExtarInfoLen] = useState<number>(0);
@@ -52,7 +54,25 @@ const SecondPage = () => {
     } else {
       clearErrors("offerType");
     }
-  }, [setError, offerType, clearErrors]);
+
+    if (smallLogoeErr) {
+      setError("smallLogo", {
+        type: "required",
+        message: smallLogoeErr,
+      });
+    } else {
+      clearErrors("smallLogo");
+    }
+
+    if (bigLogoErr) {
+      setError("bigLogo", {
+        type: "required",
+        message: bigLogoErr,
+      });
+    } else {
+      clearErrors("bigLogo");
+    }
+  }, [setError, offerType, clearErrors, smallLogoeErr, bigLogoErr]);
 
   const onSubmit = (data: any) => {
     if (data && offerType) {
@@ -61,8 +81,7 @@ const SecondPage = () => {
         price: Number(data.price),
         points: Number(data.points),
         discountAmount: Number(data.discountAmount),
-        possiblePurchases:
-          data.possiblePurchases === ClubOfferPurchaseTypes.Single ? 1 : null,
+        possiblePurchases: data.possiblePurchases === ClubOfferPurchaseTypes.Single ? 1 : null,
         description: data.description,
         longDescription: data.longDescription,
         extraInfo: data.extraInfo,
@@ -82,37 +101,19 @@ const SecondPage = () => {
           <div className="card p-4 ms-5">
             <div className="row mb-1">
               <div className="col-4 left">
-                <button
-                  className={`submit_button w-100 py-2 ${
-                    offerType === ClubOfferTypes.Prepaid ? "active " : ""
-                  }`}
-                  type="submit"
-                  onClick={() => setOfferType(ClubOfferTypes.Prepaid)}
-                >
+                <button className={`submit_button w-100 py-2 ${offerType === ClubOfferTypes.Prepaid ? "active " : ""}`} type="submit" onClick={() => setOfferType(ClubOfferTypes.Prepaid)}>
                   Prepaid
                   <Tooltip text={"tooltip"} />
                 </button>
               </div>
               <div className="col-4 middle">
-                <button
-                  className={`submit_button w-100 py-2 ${
-                    offerType === ClubOfferTypes.PunchCard ? "active " : ""
-                  }`}
-                  type="submit"
-                  onClick={() => setOfferType(ClubOfferTypes.PunchCard)}
-                >
+                <button className={`submit_button w-100 py-2 ${offerType === ClubOfferTypes.PunchCard ? "active " : ""}`} type="submit" onClick={() => setOfferType(ClubOfferTypes.PunchCard)}>
                   Punchcard
                   <Tooltip text={"tooltip"} />
                 </button>
               </div>
               <div className="col-4 right">
-                <button
-                  className={`submit_button w-100 py-2 ${
-                    offerType === ClubOfferTypes.Free ? "active " : ""
-                  }`}
-                  type="submit"
-                  onClick={() => setOfferType(ClubOfferTypes.Free)}
-                >
+                <button className={`submit_button w-100 py-2 ${offerType === ClubOfferTypes.Free ? "active " : ""}`} type="submit" onClick={() => setOfferType(ClubOfferTypes.Free)}>
                   Free
                   <Tooltip text={"tooltip"} />
                 </button>
@@ -171,18 +172,11 @@ const SecondPage = () => {
                     <option value="" disabled hidden>
                       Possible Purchase
                     </option>
-                    <option value={ClubOfferPurchaseTypes.Single}>
-                      Single
-                    </option>
-                    <option value={ClubOfferPurchaseTypes.Unlimited}>
-                      Unlimited
-                    </option>
+                    <option value={ClubOfferPurchaseTypes.Single}>Single</option>
+                    <option value={ClubOfferPurchaseTypes.Unlimited}>Unlimited</option>
                   </select>
                 </div>
-                <InputValidationMessage
-                  errors={errors}
-                  type={"possiblePurchases"}
-                />
+                <InputValidationMessage errors={errors} type={"possiblePurchases"} />
               </div>
               <div className="inputgroup col-6 right">
                 <label>
@@ -200,10 +194,7 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
-                <InputValidationMessage
-                  errors={errors}
-                  type={"discountAmount"}
-                />
+                <InputValidationMessage errors={errors} type={"discountAmount"} />
               </div>
             </div>
             <div className="row">
@@ -219,15 +210,12 @@ const SecondPage = () => {
                     {...register("description", {
                       maxLength: {
                         value: 20,
-                        message:
-                          "Description should be less than 20 characters",
+                        message: "Description should be less than 20 characters",
                       },
                     })}
                   />
                 </div>
-                <small className="p-0 m-0 me-3 float-end text-white length-info">
-                  {descriptionLen}/20
-                </small>
+                <small className="p-0 m-0 me-3 float-end text-white length-info">{descriptionLen}/20</small>
               </div>
             </div>
             <div className="row">
@@ -243,15 +231,12 @@ const SecondPage = () => {
                     {...register("longDescription", {
                       maxLength: {
                         value: 200,
-                        message:
-                          "Long Description should be less than 200 characters",
+                        message: "Long Description should be less than 200 characters",
                       },
                     })}
                   />
                 </div>
-                <small className="p-0 m-0 me-3 float-end text-white length-info">
-                  {longDescriptionLen}/200
-                </small>
+                <small className="p-0 m-0 me-3 float-end text-white length-info">{longDescriptionLen}/200</small>
               </div>
             </div>
             <div className="row">
@@ -264,29 +249,30 @@ const SecondPage = () => {
                     {...register("extraInfo", {
                       maxLength: {
                         value: 250,
-                        message:
-                          "Extra Information should be less than 250 characters",
+                        message: "Extra Information should be less than 250 characters",
                       },
                     })}
                   />
                 </div>
-                <small className="p-0 m-0 me-3 float-end text-white length-info">
-                  {extarInfoLen}/250
-                </small>
+                <small className="p-0 m-0 me-3 float-end text-white length-info">{extarInfoLen}/250</small>
               </div>
             </div>
             <div className="row">
               <div className="inputgroup col-4 left">
                 <label>Logo (Small)</label>
                 <div className="inputdiv image-uplaod-div">
-                  <ImageUpload setImageFile={setSmallLogo}></ImageUpload>
+                  <ImageUpload setImageFile={setSmallLogo} setError={setSmallLogoErr} ratio={[1.8, 1]} minheight={141} minwidth={80}></ImageUpload>
                 </div>
+                <small className="p-0 m-0 ms-4 text-white length-info">1.8:1 (min 141x80 px)</small>
+                <InputValidationMessage errors={errors} type={"smallLogo"} />
               </div>
               <div className="inputgroup col-4 middle">
                 <label>Logo (Big)</label>
                 <div className="inputdiv image-uplaod-div">
-                  <ImageUpload setImageFile={setBigLogo}></ImageUpload>
+                  <ImageUpload setImageFile={setBigLogo} setError={setBigLogoErr} minheight={200} minwidth={200} ratio={[1, 1.23]}></ImageUpload>
                 </div>
+                <small className="p-0 m-0 ms-4 text-white length-info">1:2.3 (min 200x250 px)</small>
+                <InputValidationMessage errors={errors} type={"bigLogo"} />
               </div>
               <div className="col-4 right position-relative">
                 <div className="add-benefits-div">
@@ -307,10 +293,7 @@ const SecondPage = () => {
           <BenefitCard />
           <div className=" d-inline-flex justify-content-center align-items-center position-absolute bottom-0 mb-5 ms-5">
             <span className="textsec benefit-card">Next</span>
-            <button
-              className="submit_button_plus"
-              onClick={() => navigate("/define_brand")}
-            >
+            <button className="submit_button_plus" onClick={() => navigate("/define_brand")}>
               <ArrowRight />
             </button>
           </div>
