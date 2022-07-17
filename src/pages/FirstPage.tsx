@@ -9,7 +9,12 @@ import { ClubTypes } from "../constants/enums";
 import IClub from "../constants/interfaces/IClub";
 import { EMAIL_REGEX, URL_REGEX } from "../constants/regex";
 
-const FirstPage = () => {
+type FirstPageProps = {
+  createClubEntity: (clubData: IClub) => void;
+};
+
+const FirstPage = (props: FirstPageProps) => {
+  const { createClubEntity } = props;
   const navigate = useNavigate();
 
   const [clubType, setClubType] = useState<ClubTypes | null>(null);
@@ -50,6 +55,7 @@ const FirstPage = () => {
         largeImage: bigLogo,
       };
       console.log("clubData: ", clubDataObj);
+      createClubEntity(clubDataObj);
     }
     // navigate("/add_business_to_club");
   };
