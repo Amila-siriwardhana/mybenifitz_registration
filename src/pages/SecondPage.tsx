@@ -14,14 +14,33 @@ const SecondPage = () => {
   const [offerType, setOfferType] = useState<ClubOfferTypes | null>(null);
   const [smallLogo, setSmallLogo] = useState<any | null>(null);
   const [bigLogo, setBigLogo] = useState<any | null>(null);
+  const [descriptionLen, setDescriptionLen] = useState<number>(0);
+  const [longDescriptionLen, setlongDescriptionLen] = useState<number>(0);
+  const [extarInfoLen, setExtarInfoLen] = useState<number>(0);
 
   const {
     register,
+    watch,
     handleSubmit,
     setError,
     clearErrors,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    const subscription = watch((value, { name, type }) => {
+      if (name === "description") {
+        setDescriptionLen(value.description.length);
+      }
+      if (name === "longDescription") {
+        setlongDescriptionLen(value.longDescription.length);
+      }
+      if (name === "extraInfo") {
+        setExtarInfoLen(value.extraInfo.length);
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, [watch]);
 
   useEffect(() => {
     if (!offerType) {
@@ -175,11 +194,12 @@ const SecondPage = () => {
               </div>
             </div>
             <div className="row">
-              <div className="inputgroup">
+              <div className="inputgroup ">
                 <label>Description</label>
                 <div className="inputdivtext ">
                   <textarea
                     placeholder="Description"
+                    maxLength={20}
                     {...register("description", {
                       maxLength: {
                         value: 20,
@@ -189,16 +209,16 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
-                <InputValidationMessage errors={errors} type={"description"} />
-
+                <small className="p-0 m-0 me-3 float-end text-white length-info">{descriptionLen}/20</small>
               </div>
             </div>
             <div className="row">
-              <div className="inputgroup">
+              <div className="inputgroup mt-0">
                 <label>Long Description</label>
                 <div className="inputdivtext ">
                   <textarea
                     placeholder="Long Description"
+                    maxLength={200}
                     {...register("longDescription", {
                       maxLength: {
                         value: 200,
@@ -208,16 +228,16 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
-                <InputValidationMessage errors={errors} type={"longDescription"} />
-
+                <small className="p-0 m-0 me-3 float-end text-white length-info">{longDescriptionLen}/200</small>
               </div>
             </div>
             <div className="row">
-              <div className="inputgroup">
+              <div className="inputgroup mt-0">
                 <label>Extra Information</label>
                 <div className="inputdivtext">
                   <textarea
                     placeholder="Extra Information"
+                    maxLength={250}
                     {...register("extraInfo", {
                       maxLength: {
                         value: 250,
@@ -227,8 +247,7 @@ const SecondPage = () => {
                     })}
                   />
                 </div>
-                <InputValidationMessage errors={errors} type={"extraInfo"} />
-
+                <small className="p-0 m-0 me-3 float-end text-white length-info">{extarInfoLen}/250</small>
               </div>
             </div>
             <div className="row">
