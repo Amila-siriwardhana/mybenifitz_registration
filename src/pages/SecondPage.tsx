@@ -328,7 +328,7 @@ const SecondPage = () => {
                 </small>
                 <InputValidationMessage errors={errors} type={"bigLogo"} />
               </div>
-              <div className="col-md-4 col-xs-8 mt-5 right position-relative">
+              <div className="col-md-4 col-xs-8 mt-5 right position-relative ">
                 <div className="add-benefits-div  position-relative ">
                   <span className="textsec ">Add Benefits</span>
                   <button className="submit_button_plus" type="submit">
