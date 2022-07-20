@@ -10,14 +10,13 @@ export const Header = () => {
           <img className="logo my-3 mx-5" src={logo}></img>
         </div>
       </div>
-      <div className="col-10">
-        <div className="d-flex  justify-content-around align-items-center my-4 mx-5">
+      <div className="header-div col-10">
+        <div className=" d-flex  justify-content-around align-items-center my-4 mx-5">
           <div className="headerdiv col-md-4 col-xs-12">
             <NavLink to={"/build_loyalty_club"} className="headernumber mx-3">
               1
             </NavLink>
-            <span className="">Building Loyalty Club</span>
-            <span></span>
+            <span className="header-title">Building Loyalty Club</span>
           </div>
           <hr className="horizontal_line" />
           <div className="headerdiv col-md-4 col-xs-12">

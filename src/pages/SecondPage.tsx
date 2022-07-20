@@ -99,11 +99,11 @@ const SecondPage = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
         <div className="col-md-6 m-0 p-0">
-          <div className="card p-md-4 px-4">
-            <div className="row mb-1">
-              <div className="col-xs-12 col-md-4 mb-4 md-left center">
+          <div className="card p-md-4 px-4 mt-5">
+            <div className="second-page-button row mb-1 p-0">
+              <div className="second-button col-xs-12 col-md-4 mb-4 md-left align-content-xs-center p-0">
                 <button
-                  className={`submit_button  w-100 py-2 mt-4 mt-md-0 ${
+                  className={`submit_button   py-2 mt-4 mt-md-0  ${
                     offerType === ClubOfferTypes.Prepaid ? "active " : ""
                   }`}
                   type="submit"
@@ -113,7 +113,7 @@ const SecondPage = () => {
                   <Tooltip text={"tooltip"} />
                 </button>
               </div>
-              <div className="col-xs-12 col-md-4 mb-4 middle">
+              <div className="second-button col-xs-12 col-md-4 mb-4 middle">
                 <button
                   className={`submit_button w-100 py-2 p-xs-5 ${
                     offerType === ClubOfferTypes.PunchCard ? "active " : ""
@@ -125,7 +125,7 @@ const SecondPage = () => {
                   <Tooltip text={"tooltip"} />
                 </button>
               </div>
-              <div className="col-xs-12 col-md-4 right ">
+              <div className="second-button col-xs-12 col-md-4 right ">
                 <button
                   className={`submit_button w-100 py-2 ${
                     offerType === ClubOfferTypes.Free ? "active " : ""
@@ -310,7 +310,9 @@ const SecondPage = () => {
                 <small className="p-0 m-0 ms-4 text-white length-info">
                   1.8:1 (min 141x80 px)
                 </small>
-                <InputValidationMessage errors={errors} type={"smallLogo"} />
+                <div>
+                  <InputValidationMessage errors={errors} type={"smallLogo"} />
+                </div>
               </div>
               <div className="inputgroup col-xs-6 col-md-6 my-4  middle">
                 <label>Logo (Big)</label>
@@ -326,7 +328,9 @@ const SecondPage = () => {
                 <small className="p-0 m-0 ms-4 text-white length-info">
                   1:2.3 (min 200x250 px)
                 </small>
-                <InputValidationMessage errors={errors} type={"bigLogo"} />
+                <div>
+                  <InputValidationMessage errors={errors} type={"bigLogo"} />
+                </div>
               </div>
               <div className="col-md-4 col-xs-8 mt-5 right position-relative ">
                 <div className="add-benefits-div  position-relative ">
@@ -339,13 +343,13 @@ const SecondPage = () => {
             </div>
           </div>
         </div>
-        <div className="col-md-6 col-xs-12 p-md-0 pb-5 px-0 mx-0  position-relative">
+        <div className="benifits-card-div col-md-6 col-xs-12 p-md-0 pb-5 px-0 mx-0  position-relative">
           <BenefitCard />
           <BenefitCard />
           <BenefitCard />
           <BenefitCard />
           <BenefitCard />
-          <div className=" d-inline-flex justify-content-center align-items-center position-absolute bottom-0 mb-md-5 ms-md-5 mt-5 mx-5 ">
+          <div className="next-button-div d-inline-flex justify-content-center align-items-center position-absolute bottom-0 mb-md-5 ms-md-5 mt-5 mx-5 ">
             <span className="textsec benefit-card ">Next</span>
             <button
               className="submit_button_plus "

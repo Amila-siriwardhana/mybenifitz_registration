@@ -38,3 +38,14 @@ a {
   padding-right: 15rem;
   padding-left: 15rem;
 }
+@media (max-width: 576px) {
+  .headerdiv {
+    width: 100%;
+    font-size: 20px;
+    font-style: bold;
+    font-weight: 600;
+  }
+  .header-div {
+    width: 100%;
+  }
+}

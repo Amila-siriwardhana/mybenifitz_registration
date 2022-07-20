@@ -3,6 +3,7 @@ import { Controller, useForm } from "react-hook-form";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.png";
+import { Header } from "../components/Header";
 import ImageUpload from "../components/ImageUpload";
 import InputValidationMessage from "../components/InputValidationMessage";
 import Required from "../components/Required";
@@ -70,7 +71,15 @@ const FirstPage = (props: FirstPageProps) => {
     } else {
       clearErrors("bigLogo");
     }
-  }, [setError, clubType, clearErrors, smallLogoErr, bigLogoErr, smallLogo, bigLogo]);
+  }, [
+    setError,
+    clubType,
+    clearErrors,
+    smallLogoErr,
+    bigLogoErr,
+    smallLogo,
+    bigLogo,
+  ]);
 
   const onSubmit = (data: any) => {
     console.log(smallLogo);
@@ -96,6 +105,7 @@ const FirstPage = (props: FirstPageProps) => {
 
   return (
     <div className="row">
+      <Header />
       <div className="col-xs-12 col-md-6 p-0 d-flex justify-content-center align-items-center">
         <img className="logo" src={logo} alt="Logo"></img>
       </div>
@@ -105,11 +115,21 @@ const FirstPage = (props: FirstPageProps) => {
         </div>
         <div className="card p-4 p-md-5 me-md-5">
           <div className="mb-2">
-            <button className={`submit_button px-5 py-2 ${clubType === ClubTypes.Public ? "active " : ""}`} onClick={() => setClubType(ClubTypes.Public)}>
+            <button
+              className={`submit_button px-5 py-2 ${
+                clubType === ClubTypes.Public ? "active " : ""
+              }`}
+              onClick={() => setClubType(ClubTypes.Public)}
+            >
               Public
             </button>
             <span className="textsec mx-3">or</span>
-            <button className={`submit_button px-5 py-2 ${clubType === ClubTypes.Private ? "active " : ""}`} onClick={() => setClubType(ClubTypes.Private)}>
+            <button
+              className={`submit_button px-5 py-2 ${
+                clubType === ClubTypes.Private ? "active " : ""
+              }`}
+              onClick={() => setClubType(ClubTypes.Private)}
+            >
               Private
             </button>
           </div>
@@ -144,7 +164,8 @@ const FirstPage = (props: FirstPageProps) => {
                       required: "Please enter the email address",
                       maxLength: {
                         value: 320,
-                        message: "Email address is too long. Max length is 320 characters",
+                        message:
+                          "Email address is too long. Max length is 320 characters",
                       },
                       pattern: {
                         value: EMAIL_REGEX,
@@ -167,7 +188,13 @@ const FirstPage = (props: FirstPageProps) => {
                     control={control}
                     defaultValue={""}
                     rules={{ required: "Please enter the phone number" }}
-                    render={({ field }) => <PhoneInputWithCountrySelect className="ps-2" placeholder="Phone Number" {...field} />}
+                    render={({ field }) => (
+                      <PhoneInputWithCountrySelect
+                        className="ps-2"
+                        placeholder="Phone Number"
+                        {...field}
+                      />
+                    )}
                   />
                 </div>
                 <InputValidationMessage errors={errors} type={"phoneNum"} />
@@ -202,7 +229,8 @@ const FirstPage = (props: FirstPageProps) => {
                       required: "Please enter the description",
                       maxLength: {
                         value: 140,
-                        message: "Description should be less than 140 characters",
+                        message:
+                          "Description should be less than 140 characters",
                       },
                     })}
                   />
@@ -214,31 +242,54 @@ const FirstPage = (props: FirstPageProps) => {
               <div className="inputgroup">
                 <label>Extra Information</label>
                 <div className="inputdiv">
-                  <input type="text" placeholder="Extra Information" {...register("extraInfo", {})} />
+                  <input
+                    type="text"
+                    placeholder="Extra Information"
+                    {...register("extraInfo", {})}
+                  />
                 </div>
                 <InputValidationMessage errors={errors} type={"extraInfo"} />
               </div>
             </div>
             <div className="row">
-              <div className="inputgroup col-5">
+              <div className="inputgroup col-5 justify-content-xs-center">
                 <label>
                   Logo (Small) <Required />
                 </label>
                 <div className="image-uplaod-div">
-                  <ImageUpload setImageFile={setSmallLogo} setError={setSmallLogoErr} ratio={[1, 3]} isSquare={true}></ImageUpload>
+                  <ImageUpload
+                    setImageFile={setSmallLogo}
+                    setError={setSmallLogoErr}
+                    ratio={[1, 3]}
+                    isSquare={true}
+                  ></ImageUpload>
                 </div>
-                <small className="p-0 m-0 ms-4 text-white length-info">1:3 or square</small>
-                <InputValidationMessage errors={errors} type={"smallLogo"} />
+                <small className="p-0 m-0 ms-4 text-white length-info">
+                  1:3 or square
+                </small>
+                <div>
+                  <InputValidationMessage errors={errors} type={"smallLogo"} />
+                </div>
               </div>
               <div className="inputgroup col-5 right">
                 <label>
                   Logo (Big) <Required />
                 </label>
                 <div className="image-uplaod-div">
-                  <ImageUpload setImageFile={setBigLogo} setError={setBigLogoErr} isSquare={true} minheight={40} ratio={[1, 1]}></ImageUpload>
+                  <ImageUpload
+                    setImageFile={setBigLogo}
+                    setError={setBigLogoErr}
+                    isSquare={true}
+                    minheight={40}
+                    ratio={[1, 1]}
+                  ></ImageUpload>
                 </div>
-                <small className="p-0 m-0 ms-4 text-white length-info">square (min 80x80)</small>
-                <InputValidationMessage errors={errors} type={"bigLogo"} />
+                <small className="p-0 m-0 ms-4 text-white length-info">
+                  square (min 80x80)
+                </small>
+                <div>
+                  <InputValidationMessage errors={errors} type={"bigLogo"} />
+                </div>
               </div>
             </div>
             <div className="w-100 right position-relative">
@@ -247,7 +298,8 @@ const FirstPage = (props: FirstPageProps) => {
                   type="checkbox"
                   placeholder=""
                   {...register("isAgreed", {
-                    required: "Please indicate that you have read and agree to the Terms of Service and Privacy Policy",
+                    required:
+                      "Please indicate that you have read and agree to the Terms of Service and Privacy Policy",
                   })}
                 />
                 <div>
@@ -262,7 +314,11 @@ const FirstPage = (props: FirstPageProps) => {
                 </div>
                 <div></div>
               </div>
-              <button className="submit_button p-3 px-5 position-absolute end-0 bottom-0" type="submit" disabled={!!errors.isAgreed}>
+              <button
+                className="submit_button p-3 px-5 position-absolute end-0 bottom-0"
+                type="submit"
+                disabled={!!errors.isAgreed}
+              >
                 Register
               </button>
             </div>

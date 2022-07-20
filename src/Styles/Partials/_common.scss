@@ -62,6 +62,8 @@ input[type="checkbox"] {
   background-color: #fdc11f;
   border: none;
   border-radius: $border-radius-value;
+  width: 100%;
+  padding: 0;
 
   &.active {
     background-color: white;
@@ -107,4 +109,140 @@ label {
 
 .length-info {
   font-size: 10px;
+}
+
+@media (max-width: 576px) {
+  .inputgroup {
+    padding: 0;
+    margin: 2;
+  }
+  .image-uplaod-div {
+    min-width: 100px;
+    margin: 10px;
+  }
+  .second-button {
+    padding: 0;
+    margin: 0;
+  }
+  .header-title {
+    font-size: smaller;
+  }
+  .header-div {
+    width: 100%;
+  }
+  .submit_button {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .next-button-div {
+    margin-left: 120px !important;
+    padding-top: 20px !important;
+    padding-bottom: 0 !important;
+  }
+  .benifits-card-div {
+    padding-bottom: 200px;
+    margin-bottom: 100px;
+  }
+}
+@media (max-width: 576px) {
+  .inputgroup {
+    padding: 0;
+    margin: 2;
+  }
+  .image-uplaod-div {
+    min-width: 100px;
+    margin: 10px;
+  }
+  .second-button {
+    padding: 0;
+    margin: 0;
+  }
+  .header-title {
+    font-size: smaller;
+  }
+  .header-div {
+    width: 100%;
+  }
+  .submit_button {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .next-button-div {
+    margin-left: 120px !important;
+    padding-top: 20px !important;
+    padding-bottom: 0 !important;
+  }
+  .benifits-card-div {
+    padding-bottom: 200px;
+    margin-bottom: 100px;
+  }
+}
+@media (max-width: 576px) {
+  .inputgroup {
+    padding: 0;
+    margin: 2;
+  }
+  .image-uplaod-div {
+    min-width: 100px;
+    margin: 10px;
+  }
+  .second-button {
+    padding: 0;
+    margin: 0;
+  }
+  .header-title {
+    font-size: smaller;
+  }
+  .header-div {
+    width: 100%;
+  }
+  .submit_button {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .next-button-div {
+    margin-left: 120px !important;
+    padding-top: 20px !important;
+    padding-bottom: 0 !important;
+  }
+  .benifits-card-div {
+    padding-bottom: 200px;
+    margin-bottom: 100px;
+  }
+}
+@media (max-width: 1007px) {
+  .inputgroup {
+    padding: 0;
+    margin: 2;
+  }
+  .image-uplaod-div {
+    min-width: 100px;
+    margin: 10px;
+  }
+  .second-button {
+    padding: 0;
+    margin: 0;
+  }
+  .header-title {
+    font-size: smaller;
+  }
+  .header-div {
+    width: 100%;
+  }
+  .submit_button {
+    padding: 5px !important;
+    margin: 0 !important;
+  }
+  .next-button-div {
+    margin-left: 120px !important;
+    padding-top: 20px !important;
+    padding-bottom: 0 !important;
+  }
+  .benifits-card-div {
+    padding-bottom: 200px;
+    margin-bottom: 100px;
+  }
+  .second-page-button {
+    margin-top: 20px;
+  }
 }
