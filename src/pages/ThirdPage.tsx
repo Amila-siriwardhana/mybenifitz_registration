@@ -21,7 +21,7 @@ const ThirdPage = () => {
   } = useForm();
 
   useEffect(() => {
-  if (brandLogoErr) {
+    if (brandLogoErr) {
       setError("brandLogo", {
         type: "required",
         message: brandLogoErr,
@@ -308,14 +308,19 @@ const ThirdPage = () => {
                 <div className="inputgroup col-6  left">
                   <label>Brand Logo</label>
                   <div className="inputdiv image-uplaod-div">
-                    <ImageUpload setImageFile={setBrandLogo} setError={setBrandLogoErr} isSquare={true} ratio={[1,3]}></ImageUpload>
+                    <ImageUpload
+                      setImageFile={setBrandLogo}
+                      setError={setBrandLogoErr}
+                      isSquare={true}
+                      ratio={[1, 3]}
+                    ></ImageUpload>
                   </div>
                   <InputValidationMessage errors={errors} type={"brandLogo"} />
                 </div>
               </div>
               <div className="col-xs-12 col-md-6  m-md-5 position-relative">
                 <button
-                  className="submit_button p-3 px-5 my-2 mx-5 position-md-absolute  end-0 bottom-0"
+                  className="submit_button w-100 p-3 px-5 my-2 mx-0 position-md-absolute  end-0 bottom-0"
                   type="submit"
                 >
                   Register

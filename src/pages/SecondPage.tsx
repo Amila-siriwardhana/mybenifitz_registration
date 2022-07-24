@@ -99,11 +99,11 @@ const SecondPage = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
         <div className="col-md-6 m-0 p-0">
-          <div className="card p-md-4 px-4 mt-5">
-            <div className="second-page-button row mb-1 p-0">
-              <div className="second-button col-xs-12 col-md-4 mb-4 md-left align-content-xs-center p-0">
+          <div className="card p-md-4  mt-5">
+            <div className="second-page-button  mb-1 p-0">
+              <div className="second-button col-xs-12 col-md-4 mb-4 md-left align-content-xs-center ">
                 <button
-                  className={`submit_button   py-2 mt-4 mt-md-0  ${
+                  className={`submit_button w-100 py-2 p-xs-5 left  ${
                     offerType === ClubOfferTypes.Prepaid ? "active " : ""
                   }`}
                   type="submit"
@@ -115,7 +115,7 @@ const SecondPage = () => {
               </div>
               <div className="second-button col-xs-12 col-md-4 mb-4 middle">
                 <button
-                  className={`submit_button w-100 py-2 p-xs-5 ${
+                  className={`submit_button w-100 py-2 p-xs-5 middle ${
                     offerType === ClubOfferTypes.PunchCard ? "active " : ""
                   }`}
                   type="submit"
@@ -344,19 +344,23 @@ const SecondPage = () => {
           </div>
         </div>
         <div className="benifits-card-div col-md-6 col-xs-12 p-md-0 pb-5 px-0 mx-0  position-relative">
-          <BenefitCard />
-          <BenefitCard />
-          <BenefitCard />
-          <BenefitCard />
-          <BenefitCard />
-          <div className="next-button-div d-inline-flex justify-content-center align-items-center position-absolute bottom-0 mb-md-5 ms-md-5 mt-5 mx-5 ">
-            <span className="textsec benefit-card ">Next</span>
-            <button
-              className="submit_button_plus "
-              onClick={() => navigate("/define_brand")}
-            >
-              <ArrowRight />
-            </button>
+          <div>
+            <BenefitCard />
+            <BenefitCard />
+            <BenefitCard />
+            <BenefitCard />
+            <BenefitCard />
+          </div>
+          <div className="d-flex flex-col justify-content-end">
+            <div className="next-button-div d-inline-flex justify-content-center align-items-center  bottom-0 mb-md-5 ms-md-5 mt-4 mx-5 ">
+              <span className="textsec benefit-card ">Next</span>
+              <button
+                className="submit_button_plus "
+                onClick={() => navigate("/define_brand")}
+              >
+                <ArrowRight />
+              </button>
+            </div>
           </div>
         </div>
       </div>

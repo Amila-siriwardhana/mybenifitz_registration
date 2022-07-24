@@ -105,7 +105,6 @@ const FirstPage = (props: FirstPageProps) => {
 
   return (
     <div className="row">
-      <Header />
       <div className="col-xs-12 col-md-6 p-0 d-flex justify-content-center align-items-center">
         <img className="logo" src={logo} alt="Logo"></img>
       </div>
@@ -113,10 +112,10 @@ const FirstPage = (props: FirstPageProps) => {
         <div className="textsec mx-5">
           <h3>Register Yourself!</h3>
         </div>
-        <div className="card p-4 p-md-5 me-md-5">
-          <div className="mb-2">
+        <div className="card  p-4 p-md-5 me-md-5">
+          <div className=" mb-2 ">
             <button
-              className={`submit_button px-5 py-2 ${
+              className={`submit_button w-40  py-2 ${
                 clubType === ClubTypes.Public ? "active " : ""
               }`}
               onClick={() => setClubType(ClubTypes.Public)}
@@ -125,7 +124,7 @@ const FirstPage = (props: FirstPageProps) => {
             </button>
             <span className="textsec mx-3">or</span>
             <button
-              className={`submit_button px-5 py-2 ${
+              className={`submit_button w-40  py-2 ${
                 clubType === ClubTypes.Private ? "active " : ""
               }`}
               onClick={() => setClubType(ClubTypes.Private)}
@@ -312,15 +311,16 @@ const FirstPage = (props: FirstPageProps) => {
                     Privacy Policy
                   </a>
                 </div>
-                <div></div>
               </div>
-              <button
-                className="submit_button p-3 px-5 position-absolute end-0 bottom-0"
-                type="submit"
-                disabled={!!errors.isAgreed}
-              >
-                Register
-              </button>
+              <div className="d-flex justify-content-center my-2">
+                <button
+                  className="submit_button d-flex justify-content-center w-50 py-2 p-0 m-0 end-0 bottom-0"
+                  type="submit"
+                  disabled={!!errors.isAgreed}
+                >
+                  Register
+                </button>
+              </div>
             </div>
             <InputValidationMessage errors={errors} type={"isAgreed"} />
           </form>

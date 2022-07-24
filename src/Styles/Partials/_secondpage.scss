@@ -27,3 +27,22 @@
 .benifits-card-div {
   margin-top: 25px;
 }
+.second-page-button {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: start;
+}
+.next-button-div {
+  align-self: flex-end;
+}
+@media (max-width: 576px) {
+  .second-page-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .submit_button {
+    padding: 20px;
+  }
+}

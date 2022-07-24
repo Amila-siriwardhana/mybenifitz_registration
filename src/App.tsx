@@ -6,7 +6,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="container-fluid app-conatiner">
-        {/* <Header /> */}
+        <Header />
         <ClientApp />
       </div>
     </BrowserRouter>

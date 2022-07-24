@@ -62,7 +62,7 @@ input[type="checkbox"] {
   background-color: #fdc11f;
   border: none;
   border-radius: $border-radius-value;
-  width: 100%;
+  width: 100px;
   padding: 0;
 
   &.active {
@@ -120,23 +120,23 @@ label {
     min-width: 100px;
     margin: 10px;
   }
-  .second-button {
+  .header-title {
     padding: 0;
-    margin: 0;
+    display: flex;
+    font-size: smaller;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
   }
   .header-title {
-    font-size: smaller;
-  }
-  .header-div {
-    width: 100%;
-  }
-  .submit_button {
-    padding: 0 !important;
-    margin: 0 !important;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
   }
   .next-button-div {
     margin-left: 120px !important;
-    padding-top: 20px !important;
+    padding-top: 50px !important;
     padding-bottom: 0 !important;
   }
   .benifits-card-div {
@@ -153,20 +153,13 @@ label {
     min-width: 100px;
     margin: 10px;
   }
-  .second-button {
-    padding: 0;
-    margin: 0;
-  }
   .header-title {
     font-size: smaller;
   }
   .header-div {
     width: 100%;
   }
-  .submit_button {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
+
   .next-button-div {
     margin-left: 120px !important;
     padding-top: 20px !important;
@@ -176,73 +169,76 @@ label {
     padding-bottom: 200px;
     margin-bottom: 100px;
   }
-}
-@media (max-width: 576px) {
-  .inputgroup {
-    padding: 0;
-    margin: 2;
-  }
-  .image-uplaod-div {
-    min-width: 100px;
-    margin: 10px;
-  }
-  .second-button {
-    padding: 0;
-    margin: 0;
-  }
-  .header-title {
-    font-size: smaller;
-  }
-  .header-div {
-    width: 100%;
-  }
-  .submit_button {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  .next-button-div {
-    margin-left: 120px !important;
-    padding-top: 20px !important;
-    padding-bottom: 0 !important;
-  }
-  .benifits-card-div {
-    padding-bottom: 200px;
-    margin-bottom: 100px;
+  .horizontal_line {
+    display: hide;
   }
 }
-@media (max-width: 1007px) {
-  .inputgroup {
-    padding: 0;
-    margin: 2;
-  }
-  .image-uplaod-div {
-    min-width: 100px;
-    margin: 10px;
-  }
-  .second-button {
-    padding: 0;
-    margin: 0;
-  }
-  .header-title {
-    font-size: smaller;
-  }
-  .header-div {
-    width: 100%;
-  }
-  .submit_button {
-    padding: 5px !important;
-    margin: 0 !important;
-  }
-  .next-button-div {
-    margin-left: 120px !important;
-    padding-top: 20px !important;
-    padding-bottom: 0 !important;
-  }
-  .benifits-card-div {
-    padding-bottom: 200px;
-    margin-bottom: 100px;
-  }
-  .second-page-button {
-    margin-top: 20px;
-  }
-}
+// @media (max-width: 576px) {
+//   .inputgroup {
+//     padding: 0;
+//     margin: 2;
+//   }
+//   .image-uplaod-div {
+//     min-width: 100px;
+//     margin: 10px;
+//   }
+//   .second-button {
+//     padding: 0;
+//     margin: 0;
+//   }
+//   .header-title {
+//     font-size: smaller;
+//   }
+//   .header-div {
+//     width: 100%;
+//   }
+//   .submit_button {
+//     padding: 0 !important;
+//     margin: 0 !important;
+//   }
+//   .next-button-div {
+//     margin-left: 120px !important;
+//     padding-top: 20px !important;
+//     padding-bottom: 0 !important;
+//   }
+//   .benifits-card-div {
+//     padding-bottom: 200px;
+//     margin-bottom: 100px;
+//   }
+// }
+// @media (max-width: 1007px) {
+//   .inputgroup {
+//     padding: 0;
+//     margin: 2;
+//   }
+//   .image-uplaod-div {
+//     min-width: 100px;
+//     margin: 10px;
+//   }
+//   .second-button {
+//     padding: 0;
+//     margin: 0;
+//   }
+//   .header-title {
+//     font-size: smaller;
+//   }
+//   .header-div {
+//     width: 100%;
+//   }
+//   .submit_button {
+//     padding: 5px !important;
+//     margin: 0 !important;
+//   }
+//   .next-button-div {
+//     margin-left: 120px !important;
+//     padding-top: 20px !important;
+//     padding-bottom: 0 !important;
+//   }
+//   .benifits-card-div {
+//     padding-bottom: 200px;
+//     margin-bottom: 100px;
+//   }
+//   .second-page-button {
+//     margin-top: 20px;
+//   }
+// }

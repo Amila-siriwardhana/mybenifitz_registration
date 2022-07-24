@@ -34,18 +34,25 @@ a {
   font-weight: 600;
 }
 
-.headertipics {
-  padding-right: 15rem;
-  padding-left: 15rem;
+.header-topics {
+  display: flex;
 }
 @media (max-width: 576px) {
-  .headerdiv {
-    width: 100%;
-    font-size: 20px;
-    font-style: bold;
-    font-weight: 600;
+  .header-topics {
+    display: flex;
+    flex-direction: column;
   }
   .header-div {
+    display: flex;
+    flex-flow: column;
+  }
+  .headerdiv {
+    display: flex;
+    justify-content: start;
     width: 100%;
+    margin-bottom: 10px;
+  }
+  .horizontal_line {
+    display: none;
   }
 }
